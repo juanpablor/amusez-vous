@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Mystery+Quest&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
+:root {
+    --bs-primary-rgb: 219, 106, 41; /* Customize your primary color */
+    --bs-heading-color: 219, 106, 41;
+    --bs-link-color-rgb: 66, 157, 33; /* Customize your secondary color */
+}
+body {
+    background-color:  #5fb8eb;
+    }
+    
+    h1, h2, h3, h4 {
+    }
+    
+.mystery-font {
+    text-shadow: 1px 1px 1px #fff;
+    font-family: "Mystery Quest", system-ui;
+}
+
+.mochiy-pop-font {
+    font-family: "Mochiy Pop One", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    text-shadow: 1px 1px 1px #000;
+
+}
+        
+.orange-font {
+    color: rgb(219, 106, 41);
+}
+
+.logo-container img {
+    width: 100px; /* default size for mobile */
+}
+
+@media (min-width: 768px) {
+    .logo-container img {
+        width: 200px; /* size for tablet and up */
+    }
+}
+
+@media (min-width: 992px) {
+    .logo-container img {
+        width: 300px; /* size for desktop */
+    }
+}
+
+.random-background-1 { background-color: #82c548; }
+.random-background-2 { background-color: #fad110; }
+.random-background-3 { background-color: #f79d1e; }
+.random-background-4 { background-color: #ed3686; }
+.random-background-5 { background-color: #db1f8d; }
+.random-background-6 { background-color: #fdf31e; }
+.random-background-7 { background-color: #f26451; }
+.random-background-8 { background-color: #5fac42; }
+.random-background-9 { background-color: #1c549c; }
+.random-background-10 { background-color: #2cc5c5; }
+.random-background-11 { background-color: #e69343; }
+.random-background-12 { background-color: #be814c; }
+
+.card {
+    border: none;
+}
+
+.card .card-body {
+    border-radius: 0 0 0.375rem 0.375rem;
+    -webkit-border-radius: 0 0 0.375rem 0.375rem;
+    -moz-border-radius: 0 0 0.375rem 0.375rem;
+    -ms-border-radius: 0 0 0.375rem 0.375rem;
+    -o-border-radius: 0 0 0.375rem 0.375rem;
+}

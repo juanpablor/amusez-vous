@@ -1,0 +1,124 @@
+{
+    "companyName" : "Jeux Gonflables Amusez-Vous",
+    "mainLogo" : "logo.png",
+    "descriptions": {
+        "introduction": [
+            {"title": "Qui nous sommes"},
+            {
+                "descriptions": [
+                    [ "Amusezvous est une entreprise de location de jeux gonflables. Sur la rive sud de Montréal, Sainte- Julie. Nous sommes spécialisés dans la location de jeux gonflables pour les enfants de 8 ans et moins. La location se fait sur une base journalière. C'est idéal pour les fêtes d'enfants, les garderies, les levées de fonds, les organisations socioculturelles, rencontres de famille. Amusezvous offre une variété de sautoirs et de glissades qui s'installent aussi bien à l'intérieur qu'à l'extérieur." ],
+                    [ "Pour aussi peu que 60$ par jour, organiser une fête d'enfants n'a jamais été aussi facile, les petits en raffolent."],
+                    [ "Nous en avons pour tous les goûts (petits et grands groupes)." ],
+                    [ "Afin de continuer d'offrir d'excellents prix, nous invitons les locataires à venir chercher et rapporter les jeux." ],
+                    [ "Spéciaux du lundi au jeudi. Rabais pour les garderies. Écrivez nous pour plus d'informations : amusez.vous@hotmail.com ou 514-795-4730" ],
+                    [ "Amusezvous n'est pas responsable en aucun moment des accidents survenus suite à l'utilisation de nos produits. Marche à suivre sur le contrat." ],
+                    [ "À votre service depuis 2007" ]
+                ]
+            }
+
+        ],
+        "rules": [
+            { "title" :"Par mesure de sécurité les règles d'utilisation suivante doivent être respectées. AUCUN ENFANT AGÉE DE PLUS DE 8 ANS" },
+            {
+                "rulesItems": [
+                    [ "Aucun jeu ne doit être installé dans de mauvaises conditions atmosphériques (grand vent, pluie, etc.)" ],
+                    [ "La soufflerie doit donc être connectée en permanence." ],
+                    [ "Surveillez fréquemment la soufflerie afin qu'elle ne soit pas obstruée ou coincée sinon le jeu se dégonfle et peut même se briser." ],
+                    [ "Des piquets doivent être installés lors que le jeu est gonflé à l'extérieur." ],
+                    [ "Une fois la structure éteinte, seuls les adultes peuvent marcher dessus sans les chaussures toujours afin de le dégonfler plus rapidement (sans souliers)." ],
+                    [ "Le poids maximum permis est de 200 livres par structure standard, ou un maximum de 2 ou 3 enfants à la fois." ],
+                    [ "Pour les jeux d'eau, il est préférable de laisser glisser un enfant à la fois." ],
+                    [ "Les chaussures sont INTERDITES dans les jeux." ],
+                    [ "Aucune nourriture ou boisson ne doivent être admise dans les jeux." ],
+                    [ "AUCUN  bijou, ceinture, lunette ou tous autres objets pouvant abîmer les jeux n'est admis dans les structures." ]
+                ]
+
+            }
+        ],
+        "rulesTenant" : [
+            { "title" : "Règles relatives aux obligations du locataire" },
+            {
+                "rulesItems": [
+                    [ "Pour les glissades d'eau, il est obligatoire de les sécher avant de les ranger. Des frais (40.00$) s'appliqueront si les glissades retournent mouillées." ],
+                    [ "S.V.P. rendre le jeu dans le même état que vous l'avez pris (propre et sans débris). Vous pouvez utiliser une eau savonneuse (savon vaisselle)." ],
+                    [ "Tout bris causé à la structure devra ABSOLUMENT être signalé afin d'éviter des frais de réparation." ],
+                    [ "Il est important de ranger le jeu dans le bon sac pour éviter toute erreur." ]
+                ]
+            }
+        ],
+        "responsabilityNote" : "En aucun temps Laylen Garcia ou Jeux Gonflables Amusez-vous Inc. ne peuvent être tenus responsables des accidents ou des blessures engendrées par l'utilisation des structures de jeux gonflables.",
+        "depositNote" : "Si au retour du jeu, nous remarquons des bris excessifs qui nécessitent des réparations, votre dépôt sera retenu."
+    },
+    "products": [
+        {
+            "id": 1,
+            "name" : "Chateau echante",
+            "size" : "8 x 12 x 8.6h",
+            "price" : "80$",
+            "image" : "chateau-enchante.png"
+        },
+        {
+            "id": 2,
+            "name" : "Parc d'eau",
+            "size" : "14.3 x 12 x 8h",
+            "price" : "120$",
+            "image" : "parc-d-eau.png"
+        },
+        {
+            "id": 3,
+            "name" : "Combo singe",
+            "size" : "16 x 13 x 8h",
+            "price" : "110$",
+            "image" : "combo-singe.png"
+        },
+        {
+            "id": 4,
+            "name" : "Course à obstacles",
+            "size" : "19 x 19 x 7h",
+            "price" : "100$",
+            "image" : "course-a-obstacles.png"
+        },
+        {
+            "id": 5,
+            "name" : "multi Sports",
+            "size" : "14 x 10 x 8h",
+            "price" : "100$",
+            "image" : "multi-sports.png"
+        },
+        {
+            "id": 6,
+            "name" : "Petite princesse",
+            "size" : "7.5 x 7.5 x 6.2h",
+            "price" : "60$",
+            "image" : "petite-princesse.png"
+        },
+        {
+            "id": 7,
+            "name" : "petit sautoir",
+            "size" : "9.3 x 9 x 6h",
+            "price" : "60$",
+            "image" : "petit-sautoir.png"
+        },
+        {
+            "id": 8,
+            "name" : "Petit arbre",
+            "size" : "10.5 x 13 x 9.5h",
+            "price" : "80$",
+            "image" : "petit-arbre.png"
+        },
+        {
+            "id": 9,
+            "name" : "Tour de princesse",
+            "size" : "12.5 x 11 x 11h",
+            "price" : "100$",
+            "image" : "tour-de-princesse.png"
+        },
+        {
+            "id": 10,
+            "name" : "Petite jungle",
+            "size" : "10.5 x 9.8 x 6h",
+            "price" : "80$",
+            "image" : "petite-jungle.png"
+        }
+    ]
+}
