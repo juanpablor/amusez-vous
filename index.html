@@ -70,12 +70,25 @@
 
             headerContainer.appendChild(logoContainer);
 
+            // Crear un contenedor para los correos electrónicos y teléfonos
+            const contactInfo = document.createElement('div');
+            contactInfo.className = 'text-center contact-info-container';
+
             // Mostrar nombre de la compañía
             const companyName = document.createElement('h1');
             companyName.className = 'text-primary text-center align-items-center d-flex mystery-font';
             companyName.textContent = data.companyName;
-            headerContainer.appendChild(companyName);
+            contactInfo.appendChild(companyName);
 
+            const reservationMail = document.createElement('p');
+            reservationMail.textContent = `${data.reservationMail} ${data.email}`;
+            contactInfo.appendChild(reservationMail);
+
+            const reservationPhone = document.createElement('p');
+            reservationPhone.textContent = `${data.reservationPhone} ${data.phone}`;
+            contactInfo.appendChild(reservationPhone);
+
+            headerContainer.appendChild(contactInfo);
             contentDiv.appendChild(headerContainer);
 
             // Contenedor para productos e introducción
@@ -98,15 +111,23 @@
 
                 const productImg = document.createElement('img');
                 productImg.src = `img/${product.image}`;
-                productImg.className = 'card-img-top w-50';
+                productImg.className = 'card-img-top mx-5';
                 productImg.alt = `${product.name} Image`;
                 productImg.style.height = '226px';
 
                 // Añadir la imagen al contenedor de la imagen
                 productImgContainer.appendChild(productImg);
 
+                const iconCTA = document.createElement('img');
+                iconCTA.src = 'img/tap.svg';
+                iconCTA.className = 'icon-cta position-absolute';
+                iconCTA.alt = 'Tap to open';
+
+                // Añadir la imagen al contenedor de la imagen
+                productImgContainer.appendChild(iconCTA);
+
                 const productCardBody = document.createElement('div');
-                productCardBody.className = 'card-body random-background';
+                productCardBody.className = 'card-body random-background bg-fixed';
 
                 const productLink = document.createElement('a');
                 productLink.href = '#';
@@ -116,7 +137,7 @@
                 productLink.onclick = () => showProductDetails(product);
 
                 const productCardText = document.createElement('p');
-                productCardText.className = 'card-text text-center m-0 mochiy-pop-font fs-3 text-capitalize text-white';
+                productCardText.className = 'card-text text-center m-0 mochiy-pop-font fs-3  text-white';
                 productCardText.textContent = product.name;
 
                 productCardBody.appendChild(productCardText);
@@ -156,7 +177,7 @@
 
             // Mostrar reglas de seguridad
             const rulesTitle = document.createElement('h2');
-            rulesTitle.className = 'card-text text-center m-0 mochiy-pop-font fs-3 text-capitalize text-white';
+            rulesTitle.className = 'card-text text-center m-0 mochiy-pop-font fs-3 text-white';
             rulesTitle.textContent = data.descriptions.rules[0].title;
             rulesContainer.appendChild(rulesTitle);
 
@@ -172,7 +193,7 @@
 
             // Mostrar reglas de arrendatario
             const rulesTenantTitle = document.createElement('h2');
-            rulesTenantTitle.className = 'card-text text-center m-0 mochiy-pop-font fs-3 text-capitalize text-white';
+            rulesTenantTitle.className = 'card-text text-center m-0 mochiy-pop-font fs-3 text-white';
             rulesTenantTitle.textContent = data.descriptions.rulesTenant[0].title;
             rulesContainer.appendChild(rulesTenantTitle);
 
