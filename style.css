@@ -105,3 +105,39 @@ body {
     left: 86%;
     bottom: 83%;
 }
+
+
+.whatsapp_wrap {
+    bottom: 70%;
+    left: 10px;
+    opacity: 1;
+    transition: opacity 0.5s ease 0s;
+    box-sizing: border-box;
+    direction: ltr;
+    position: fixed !important;
+    z-index: 16000160 !important;
+  }
+  .whatsapp_wrap .whatsapp_btn {
+    display: flex;
+    margin-top: 14px;
+    position: relative;
+    justify-content: flex-start;
+  }
+  .whatsapp_wrap .whatsapp_btn a {
+    width: 50px;
+    height: 50px;
+    order: 1;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.4) 2px 2px 6px;
+    transition: all 0.5s ease 0s;
+    position: relative;
+    z-index: 200;
+    display: block;
+    border: 0px;
+    background: #4dc247 !important;
+    color: #4dc247;
+  }
