@@ -17,7 +17,7 @@
     <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header random-background">
                     <h5 class="modal-title" id="modalProductName">Product Details</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -26,7 +26,7 @@
                     <p id="modalProductSize"></p>
                     <p id="modalProductPrice"></p>
                 </div>
-                <div class="modal-footer">
+                <div class="modal-footer random-background">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -59,11 +59,11 @@
 
             // Crear un contenedor para el logo
             const logoContainer = document.createElement('article');
-            logoContainer.className = 'logo-container my-3';
+            logoContainer.className = 'logo-container my-3 d-flex';
 
             // Mostrar logo de la compañía
             const mainLogo = document.createElement('img');
-            mainLogo.className = 'img-fluid';
+            mainLogo.className = 'img-fluid align-self-center';
             mainLogo.src = `img/${data.mainLogo}`; // Ajuste para mostrar la imagen
             mainLogo.alt = `${data.companyName} Logo`;
             logoContainer.appendChild(mainLogo);
@@ -72,19 +72,21 @@
 
             // Crear un contenedor para los correos electrónicos y teléfonos
             const contactInfo = document.createElement('div');
-            contactInfo.className = 'text-center contact-info-container';
+            contactInfo.className = 'contact-info-container';
 
             // Mostrar nombre de la compañía
             const companyName = document.createElement('h1');
-            companyName.className = 'text-primary text-center align-items-center d-flex mystery-font';
+            companyName.className = 'text-primary text-center brown-font mt-2 align-items-center d-flex mystery-font justify-content-center';
             companyName.textContent = data.companyName;
             contactInfo.appendChild(companyName);
 
             const reservationMail = document.createElement('p');
+            reservationMail.className = 'orange-font lh-1 indie-flower-font fs-5';
             reservationMail.textContent = `${data.reservationMail} ${data.email}`;
             contactInfo.appendChild(reservationMail);
-
+            
             const reservationPhone = document.createElement('p');
+            reservationPhone.className = 'orange-font lh-1 indie-flower-font fs-5';
             reservationPhone.textContent = `${data.reservationPhone} ${data.phone}`;
             contactInfo.appendChild(reservationPhone);
 
@@ -156,11 +158,11 @@
 
             // Crear un contenedor div con clase row para introTitle e introParagraph
             const introContainer = document.createElement('div');
-            introContainer.className = 'row my-4 p-5 bg-primary';
+            introContainer.className = 'row my-4 p-2 bg-primary';
 
             // Mostrar introducción
             const introTitle = document.createElement('h2');
-            introTitle.className = 'text-white mystery-font text-center';
+            introTitle.className = 'text-white mystery-font text-center mt-3';
             introTitle.textContent = data.descriptions.introduction[0].title;
             introContainer.appendChild(introTitle);
             
@@ -173,11 +175,11 @@
 
             // Contenedor para reglas de seguridad y reglas de arrendatario
             const rulesContainer = document.createElement('div');
-            rulesContainer.className = 'row my-4 p-5 bg-primary';
+            rulesContainer.className = 'row my-4 p-2 bg-primary';
 
             // Mostrar reglas de seguridad
             const rulesTitle = document.createElement('h2');
-            rulesTitle.className = 'card-text text-center m-0 mochiy-pop-font fs-3 text-white';
+            rulesTitle.className = 'card-text text-center mt-2 mochiy-pop-font fs-3 text-white';
             rulesTitle.textContent = data.descriptions.rules[0].title;
             rulesContainer.appendChild(rulesTitle);
 
