@@ -333,17 +333,26 @@ document.addEventListener("DOMContentLoaded", function() {
                     config.type = 'text/javascript'; // Asegurarse que se ejecute el script de configuración
                 }
             }
-        }
-    }
 
-                // Verificar si Google Analytics está cargado
-                setTimeout(() => {
+            // Verificar si Google Analytics está cargado
+            setTimeout(() => {
                 if (isGoogleAnalyticsLoaded() && isGtagLoaded()) {
                     console.log('Google Analytics está cargado correctamente.');
                 } else {
                     console.log('Google Analytics no se cargó correctamente.');
                 }
             }, 1000); // Dar tiempo para cargar el script
+        }
+    }
+
+    function isGoogleAnalyticsLoaded() {
+        const script = document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
+        return !!script;
+    }
+
+    function isGtagLoaded() {
+        return typeof gtag === 'function';
+    }
 
     // Mostrar el banner solo si no se han guardado preferencias previamente
     if (!localStorage.getItem('cookie_preferences')) {
@@ -352,6 +361,7 @@ document.addEventListener("DOMContentLoaded", function() {
         loadCookiePreferences();
     }
 });
+
 
 
         
