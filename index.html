@@ -28,6 +28,7 @@
             </label>
         </div>
         <button id="savePreferences">Guardar Preferencias</button>
+        <button id="rejectAll">Rechazar Todo</button>
     </div>
 
     <!-- Modal -->
@@ -277,9 +278,10 @@
 
     <!-- Cookie Consent Banner -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
     const cookieBanner = document.getElementById('cookieConsentBanner');
     const savePreferencesButton = document.getElementById('savePreferences');
+    const rejectAllButton = document.getElementById('rejectAll');
     const checkboxes = document.querySelectorAll('.cookie-options input[type="checkbox"]');
 
     savePreferencesButton.addEventListener('click', function() {
@@ -287,6 +289,17 @@
         checkboxes.forEach(function(checkbox) {
             preferences[checkbox.name] = checkbox.checked;
         });
+        saveCookiePreferences(preferences);
+        cookieBanner.style.display = 'none';
+        loadGoogleAnalytics(preferences);
+    });
+
+    rejectAllButton.addEventListener('click', function() {
+        let preferences = {
+            essential: true,
+            performance: false,
+            marketing: false
+        };
         saveCookiePreferences(preferences);
         cookieBanner.style.display = 'none';
     });
@@ -304,6 +317,21 @@
             checkboxes.forEach(function(checkbox) {
                 checkbox.checked = parsedPreferences[checkbox.name];
             });
+            loadGoogleAnalytics(parsedPreferences);
+        }
+    }
+
+    function loadGoogleAnalytics(preferences) {
+        if (preferences.performance) {
+            // Cargar Google Analytics
+            const script = document.getElementById('googleAnalyticsScript');
+            if (script) {
+                script.src = script.src; // Recargar el script
+                const config = document.getElementById('googleAnalyticsConfig');
+                if (config) {
+                    config.type = 'text/javascript'; // Asegurarse que se ejecute el script de configuración
+                }
+            }
         }
     }
 
@@ -314,6 +342,7 @@
         loadCookiePreferences();
     }
 });
+
 
         
     </script>

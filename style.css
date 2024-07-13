@@ -183,7 +183,7 @@ body {
 }
 
 .cookie-consent button {
-    margin: 0;
+    margin: 0 5px;
     padding: 5px 10px;
     cursor: pointer;
     border: none;
@@ -194,6 +194,15 @@ body {
 .cookie-consent button:hover {
     background-color: #0056b3;
 }
+
+#rejectAll {
+    background-color: #dc3545;
+}
+
+#rejectAll:hover {
+    background-color: #c82333;
+}
+
 
 .btn-close {
     color: #fff !important;
