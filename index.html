@@ -13,23 +13,23 @@
 <body>
     <div class="container" id="content"></div>
     <div id="cookieConsentBanner" class="cookie-consent">
-        <p>Este sitio web utiliza cookies para mejorar la experiencia del usuario. Ajusta tus preferencias de cookies:</p>
-        <div class="cookie-options">
+        <p class="indie-flower-font">Ce site web utilise des témoins (cookies) pour améliorer l'expérience utilisateur. Ajustez vos préférences :</p>
+        <div class="cookie-options indie-flower-font">
             <label>
                 <input type="checkbox" name="essential" checked disabled>
-                Cookies Esenciales (necesarias para el funcionamiento del sitio)
+                Témoins (cookies) essentielles (nécessaires au fonctionnement du site)
             </label>
             <label>
                 <input type="checkbox" name="performance">
-                Cookies de Rendimiento (para analizar el uso del sitio)
+                Témoins (cookies) de performance (pour analyser l'utilisation du site)
             </label>
             <label>
                 <input type="checkbox" name="marketing">
-                Cookies de Marketing (para personalizar la publicidad)
+                Témoins (cookies) de marketing (pour personnaliser la publicité)
             </label>
         </div>
-        <button id="savePreferences">Guardar Preferencias</button>
-        <button id="rejectAll">Rechazar Todo</button>
+        <button class="indie-flower-font btn botones-personalizados" id="savePreferences">Enregistrer préférences</button>
+        <button class="indie-flower-font btn botones-personalizados" id="rejectAll">Tout refuser</button>
     </div>
 
     <!-- Modal -->
@@ -37,13 +37,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header random-background">
-                    <h5 class="modal-title m-auto mochiy-pop-font" id="modalProductName">Product Details</h5>
+                    <h5 class="modal-title mochiy-pop-font" id="modalProductName">Product Details</h5>
                     <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <img id="modalProductImage" src="" alt="Product Image" class="img-fluid mb-3" />
                     <p class="text-center mochiy-pop-font orange-font fs-5 lh-2 mb-0" id="modalProductSize"></p>
-                    <p class="text-center mochiy-pop-font orange-font fs-5 lh-2 mb-0" id="modalProductPrice"></p>
+                    <p class="text-center mochiy-pop-font orange-font fs-5 lh-2 mb-0" style="white-space: pre-wrap" id="modalProductPrice"></p>
                 </div>
                 <div class="modal-footer random-background">
                     <button type="button" class="btn btn-secondary botones-personalizados" data-bs-dismiss="modal">Fermer</button>

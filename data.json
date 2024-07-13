@@ -62,7 +62,7 @@
             "id": 1,
             "name" : "Château Enchanté",
             "size" : "8 x 12 x 8.6h",
-            "price" : "80$",
+            "price" : "80$/jour\n120$ fin de semaine complète",
             "image" : "chateau-enchante.png",
             "imageThumbnail" : "chateau-enchante-thumbnail.png"
         },
@@ -70,7 +70,7 @@
             "id": 2,
             "name" : "Parc d'Eau",
             "size" : "14.3 x 12 x 8h",
-            "price" : "120$",
+            "price" : "120$/jour\n180$ fin de semaine complète",
             "image" : "parc-d-eau.png",
             "imageThumbnail" : "parc-d-eau-thumbnail.png"
         },
@@ -78,7 +78,7 @@
             "id": 3,
             "name" : "Combo Singe",
             "size" : "16 x 13 x 8h",
-            "price" : "110$",
+            "price" : "110$/jour\n160$ fin de semaine complète",
             "image" : "combo-singe.png",
             "imageThumbnail" : "combo-singe-thumbnail.png"
         },
@@ -86,7 +86,7 @@
             "id": 4,
             "name" : "Course à Obstacles",
             "size" : "19 x 19 x 7h",
-            "price" : "100$",
+            "price" : "100$/jour\n150$/fin de semaine complète",
             "image" : "course-a-obstacles.png",
             "imageThumbnail" : "course-a-obstacles-thumbnail.png"
         },
@@ -94,7 +94,7 @@
             "id": 5,
             "name" : "Multi Sports",
             "size" : "14 x 10 x 8h",
-            "price" : "100$",
+            "price" : "100$/jour\n150$/fin de semaine complète",
             "image" : "multi-sports.png",
             "imageThumbnail" : "multi-sports-thumbnail.png"
         },
@@ -102,7 +102,7 @@
             "id": 6,
             "name" : "Petite Princesse",
             "size" : "7.5 x 7.5 x 6.2h",
-            "price" : "60$",
+            "price" : "60$/jour\n90$ fin de semaine complète",
             "image" : "petite-princesse.png",
             "imageThumbnail" : "petite-princesse-thumbnail.png"
         },
@@ -110,7 +110,7 @@
             "id": 7,
             "name" : "Petit Sautoir",
             "size" : "9.3 x 9 x 6h",
-            "price" : "60$",
+            "price" : "60$/jour\n90$ fin de semaine complète",
             "image" : "petit-sautoir.png",
             "imageThumbnail" : "petit-sautoir-thumbnail.png"
         },
@@ -118,7 +118,7 @@
             "id": 8,
             "name" : "Petit Arbre",
             "size" : "10.5 x 13 x 9.5h",
-            "price" : "80$",
+            "price" : "80$/jour\n120$ fin de semaine complète",
             "image" : "petit-arbre.png",
             "imageThumbnail" : "petit-arbre-thumbnail.png"
         },
@@ -126,7 +126,7 @@
             "id": 9,
             "name" : "Tour de Princesse",
             "size" : "12.5 x 11 x 11h",
-            "price" : "100$",
+            "price" : "100$/jour\n150$/fin de semaine complète",
             "image" : "tour-de-princesse.png",
             "imageThumbnail" : "tour-de-princesse-thumbnail.png"
         },
@@ -134,7 +134,7 @@
             "id": 10,
             "name" : "Petite Jungle",
             "size" : "10.5 x 9.8 x 6h",
-            "price" : "80$",
+            "price" : "80$/jour\n120$ fin de semaine complète",
             "image" : "petite-jungle.png",
             "imageThumbnail" : "petite-jungle-thumbnail.png"
         }
