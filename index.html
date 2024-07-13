@@ -35,16 +35,16 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header random-background">
-                    <h5 class="modal-title" id="modalProductName">Product Details</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title m-auto mochiy-pop-font" id="modalProductName">Product Details</h5>
+                    <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <img id="modalProductImage" src="" alt="Product Image" class="img-fluid mb-3" />
-                    <p id="modalProductSize"></p>
-                    <p id="modalProductPrice"></p>
+                    <p class="text-center mochiy-pop-font orange-font fs-5 lh-2 mb-0" id="modalProductSize"></p>
+                    <p class="text-center mochiy-pop-font orange-font fs-5 lh-2 mb-0" id="modalProductPrice"></p>
                 </div>
                 <div class="modal-footer random-background">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary botones-personalizados" data-bs-dismiss="modal">Fermer</button>
                 </div>
             </div>
         </div>
@@ -265,7 +265,17 @@
     </script>
 
 
-    <!-- Google Analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LS0XWKF506"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LS0XWKF506');
+    </script>
+
+    <!-- Cookie Consent Banner -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
     const cookieBanner = document.getElementById('cookieConsentBanner');

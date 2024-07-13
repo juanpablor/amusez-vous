@@ -159,6 +159,7 @@ body {
     padding: 10px;
     text-align: center;
     box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
 }
 
 .cookie-consent p {
@@ -192,4 +193,17 @@ body {
 
 .cookie-consent button:hover {
     background-color: #0056b3;
+}
+
+.btn-close {
+    color: #fff !important;
+    fill: #fff !important;
+    stroke: #fff !important;
+    filter: invert(1);
+}
+
+.botones-personalizados {
+    --bs-btn-bg: #f0a71f; /* Cambiar el color de fondo a un verde */
+    --bs-btn-hover-bg: #f0a71f; /* Cambiar el color de fondo al pasar el ratón */
+    --bs-btn-border-color: #f0a71f; /* Cambiar el color del borde */
 }
