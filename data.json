@@ -1,6 +1,7 @@
 {
     "companyName" : "Jeux Gonflables AmusezVous",
     "email" : "amusez.vous@hotmail.com",
+    "address" : "2029 de la Concorde, Sainte-Julie, Québec, J3E3R7",
     "phone" : "514-795-4730",
     "reservationMail" : "Pour réserver svp envoyer un courriel à ",
     "reservationPhone" : "ou contactez-nous au ",
@@ -38,7 +39,7 @@
                     [ "AUCUN  bijou, ceinture, lunette ou tous autres objets pouvant abîmer les jeux n'est admis dans les structures." ],
                     [ "Ne pas laisser le jeu dehors la nuit."],
                     [ "Frais de 20$ si jeu retourne sale." ],
-                    [ "SVP ne pas laisser les enfnats aller sur le jeu avec du maquillage." ]
+                    [ "SVP ne pas laisser les enfants aller sur le jeu avec du maquillage." ]
                 ]
 
             }
@@ -62,7 +63,7 @@
             "id": 1,
             "name" : "Château Enchanté",
             "size" : "8 x 12 x 8.6h",
-            "price" : "80$/jour\n120$ fin de semaine complète",
+            "price" : "80$ jour\n120$ fin de semaine complète",
             "image" : "chateau-enchante.png",
             "imageThumbnail" : "chateau-enchante-thumbnail.png"
         },
@@ -70,7 +71,7 @@
             "id": 2,
             "name" : "Parc d'Eau",
             "size" : "14.3 x 12 x 8h",
-            "price" : "120$/jour\n180$ fin de semaine complète",
+            "price" : "120$ jour\n180$ fin de semaine complète",
             "image" : "parc-d-eau.png",
             "imageThumbnail" : "parc-d-eau-thumbnail.png"
         },
@@ -78,7 +79,7 @@
             "id": 3,
             "name" : "Combo Singe",
             "size" : "16 x 13 x 8h",
-            "price" : "110$/jour\n160$ fin de semaine complète",
+            "price" : "110$ jour\n160$ fin de semaine complète",
             "image" : "combo-singe.png",
             "imageThumbnail" : "combo-singe-thumbnail.png"
         },
@@ -86,7 +87,7 @@
             "id": 4,
             "name" : "Course à Obstacles",
             "size" : "19 x 19 x 7h",
-            "price" : "100$/jour\n150$/fin de semaine complète",
+            "price" : "100$ jour\n150$ fin de semaine complète",
             "image" : "course-a-obstacles.png",
             "imageThumbnail" : "course-a-obstacles-thumbnail.png"
         },
@@ -94,7 +95,7 @@
             "id": 5,
             "name" : "Multi Sports",
             "size" : "14 x 10 x 8h",
-            "price" : "100$/jour\n150$/fin de semaine complète",
+            "price" : "100$ jour\n150$ fin de semaine complète",
             "image" : "multi-sports.png",
             "imageThumbnail" : "multi-sports-thumbnail.png"
         },
@@ -102,7 +103,7 @@
             "id": 6,
             "name" : "Petite Princesse",
             "size" : "7.5 x 7.5 x 6.2h",
-            "price" : "60$/jour\n90$ fin de semaine complète",
+            "price" : "60$ jour\n90$ fin de semaine complète",
             "image" : "petite-princesse.png",
             "imageThumbnail" : "petite-princesse-thumbnail.png"
         },
@@ -110,7 +111,7 @@
             "id": 7,
             "name" : "Petit Sautoir",
             "size" : "9.3 x 9 x 6h",
-            "price" : "60$/jour\n90$ fin de semaine complète",
+            "price" : "60$ jour\n90$ fin de semaine complète",
             "image" : "petit-sautoir.png",
             "imageThumbnail" : "petit-sautoir-thumbnail.png"
         },
@@ -118,7 +119,7 @@
             "id": 8,
             "name" : "Petit Arbre",
             "size" : "10.5 x 13 x 9.5h",
-            "price" : "80$/jour\n120$ fin de semaine complète",
+            "price" : "80$ jour\n120$ fin de semaine complète",
             "image" : "petit-arbre.png",
             "imageThumbnail" : "petit-arbre-thumbnail.png"
         },
@@ -126,7 +127,7 @@
             "id": 9,
             "name" : "Tour de Princesse",
             "size" : "12.5 x 11 x 11h",
-            "price" : "100$/jour\n150$/fin de semaine complète",
+            "price" : "100$ jour\n150$ fin de semaine complète",
             "image" : "tour-de-princesse.png",
             "imageThumbnail" : "tour-de-princesse-thumbnail.png"
         },
@@ -134,9 +135,35 @@
             "id": 10,
             "name" : "Petite Jungle",
             "size" : "10.5 x 9.8 x 6h",
-            "price" : "80$/jour\n120$ fin de semaine complète",
+            "price" : "80$ jour\n120$ fin de semaine complète",
             "image" : "petite-jungle.png",
             "imageThumbnail" : "petite-jungle-thumbnail.png"
         }
+    ],
+    "faq" : [
+        ["Q1: Comment est-ce que je peux réserver un jeu gonflable?"],
+        ["R1: Il s'agit de nous envoyer un courriel avec votre nom, adresse, numéro de téléphone, nom du jeu et date à amusez.vous@hotmail.com "],
+        ["Q2: Est-ce qu'il y a des frais pour une réservation?"],
+        ["R2: Non, nous n'exigeons aucun frais."],
+        ["Q3: J'ai réservé un jeu gonflable, mais on annonce de la pluie la journée de mon activité, est-ce que je peux annuler ma réservation?"],
+        ["R3: Oui, cependant vous devez nous aviser 24 h à l'avance, pour annuler votre réservation, à ce moment aucun frais ne vous sera chargé."],
+        ["Q4: Combien de temps à l'avance doit-on faire la réservation ?"],
+        ["R4: Plus vous réservez tôt, plus le choix est grand. Nous vous conseillons de réserver au moins 15 jours avant votre événement."],
+        ["Q5: Est-il possible de reporter la location du jeu ?"],
+        ["R5: Oui, bien sûr, il est possible de reporter votre location, sans frais. Par contre, nous ne pouvons garantir la disponibilité de votre choix de jeux. De plus, vous devez toujours nous aviser au moins 24 heures à l'avance si vous reportez une activité. Dans le cas d'un report d'activité pour ceux qui ont fait un dépôt de réservation, vous aurez donc un crédit équivalent à votre dépôt lors de votre prochaine location. La durée de validité du crédit est de 1 an. Si aucun avis ne nous a été acheminé, vous perdez votre dépôt. N'hésitez pas à en parler avec nous pour examiner toutes les options possibles."],
+        ["Q6: Comment sont soufflés les jeux gonflables ?"],
+        ["R6: Nos structures gonflables sont alimentées par des souffleurs nécessitant des prises de courant standard (110V)."],
+        ["Q7: À l'extérieur, comment installer les jeux de façon sécuritaire ?"],
+        ["R7: Nous vous fournissons des piquets pour ancrer le jeu au sol. Il est important de noter que ces ancrages ont pour but de maintenir le jeu en place lors d'une rafale. Si ces rafales se répètent ou que le vent devient constant (plus de 30km/h), vous devrez immédiatement dégonfler le jeu pour assurer la sécurité des utilisateurs. Les jeux installés à l'intérieur n'ont pas à être ancrés. NOTE: TRÈS IMPORTANT D'ENTRER LE JEU À L'INTÉRIEUR POUR LA NUIT. L'HUMIDITÉ PEUT ENDOMMAGER LE JEU."],
+        ["Q8: Sur quelle surface pouvons-nous installer les jeux ?"],
+        ["R8: Gazon, asphalte (avec protection adéquate) et béton (avec protection adéquate)."],
+        ["Q9: Combien de temps est-il nécessaire pour installer les jeux gonflables ?"],
+        ["R9: Chaque jeu étant différent, il est difficile de prévoir avec précision le temps d'installation. Cependant, une fois que le jeu est déplié et que le souffleur est connecté au tuyau de vinyle, le jeu prend environ 2 à 3 minutes pour gonfler. Vous pouvez prévoir environ entre 10 et 15 minutes par jeu (préparation et gonflement)."],
+        ["Q10: Combien de temps est-il nécessaire pour le démontage ?"],
+        ["R10: Le temps de démontage est semblable à celui de l'installation, c'est-à-dire entre 10 et 15 minutes par jeu. UN TRUC ;-) laissez le jeu tempérer, c'est-à-dire laisser l'air sortir du jeu, soit en appuyant dessus ou en le laissant tout simplement dégonfler complètement le temps que vous démonter autre chose."],
+        ["Q11: Que faire lorsqu'il pleut ?"],
+        ["R11: Les jeux ne peuvent être utilisés en cas de pluie pour une question de sécurité."],
+        ["Q12: Quelle est la supervision requise pour un jeu gonflable ?"],
+        ["R12: Selon le jeu choisi, 1 à 2 adultes sont obligatoirement requis pour assurer la sécurité des utilisateurs."]
     ]
 }

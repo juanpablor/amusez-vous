@@ -23,7 +23,7 @@ body {
     font-family: "Mochiy Pop One", sans-serif;
     font-weight: 100;
     font-style: normal;
-    text-shadow: 1px 1px 1px #000;
+    /* text-shadow: 1px 1px 1px #000; */
     }
     
 .indie-flower-font {
@@ -50,6 +50,10 @@ body {
 .modal-body p{
     font-size: 1rem;
 }
+
+.header-container {
+    flex-direction: column;
+}
 @media (min-width: 768px) {
     .logo-container img {
         width: 200px; /* size for tablet and up */
@@ -57,6 +61,9 @@ body {
     }
     .contact-info-container{
         margin-top: 3rem;
+    }
+    .header-container {
+        flex-direction: row;
     }
 }
 
@@ -115,10 +122,13 @@ body {
     bottom: 83%;
 }
 
+.muted-info{
+    font-size: 0.75rem !important;
+}
 
 .whatsapp_wrap {
-    bottom: 70%;
-    left: 10px;
+    bottom: 82%;
+    right: 10px;
     opacity: 1;
     transition: opacity 0.5s ease 0s;
     box-sizing: border-box;
@@ -206,4 +216,21 @@ body {
     --bs-btn-bg: #f0a71f; /* Cambiar el color de fondo a un verde */
     --bs-btn-hover-bg: #f0a71f; /* Cambiar el color de fondo al pasar el ratón */
     --bs-btn-border-color: #f0a71f; /* Cambiar el color del borde */
+}
+
+.faq-item {
+    color:rgb(82, 82, 82);
+}
+
+.faq-item:nth-child(even){
+    background: #ffad16;
+}
+
+.faq-item:nth-child(odd){
+    background: #ffd993;
+}
+
+.footer-container {
+    background-color: #000;
+    /* height: 400px;; */
 }

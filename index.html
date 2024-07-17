@@ -1,371 +1,575 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico" />
     <title></title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <!-- Custom CSS for Bootstrap Colors -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="container" id="content"></div>
     <div id="cookieConsentBanner" class="cookie-consent">
-        <p class="indie-flower-font">Ce site web utilise des témoins (cookies) pour améliorer l'expérience utilisateur. Ajustez vos préférences :</p>
-        <div class="cookie-options indie-flower-font">
-            <label>
-                <input type="checkbox" name="essential" checked disabled>
-                Témoins (cookies) essentielles (nécessaires au fonctionnement du site)
-            </label>
-            <label>
-                <input type="checkbox" name="performance">
-                Témoins (cookies) de performance (pour analyser l'utilisation du site)
-            </label>
-            <label>
-                <input type="checkbox" name="marketing">
-                Témoins (cookies) de marketing (pour personnaliser la publicité)
-            </label>
-        </div>
-        <button class="indie-flower-font btn botones-personalizados" id="savePreferences">Enregistrer préférences</button>
-        <button class="indie-flower-font btn botones-personalizados" id="rejectAll">Tout refuser</button>
+      <p class="indie-flower-font">
+        Ce site web utilise des témoins (cookies) pour améliorer l'expérience
+        utilisateur. Ajustez vos préférences :
+      </p>
+      <div class="cookie-options indie-flower-font">
+        <label>
+          <input type="checkbox" name="essential" checked disabled />
+          Témoins (cookies) essentielles (nécessaires au fonctionnement du site)
+        </label>
+        <label>
+          <input type="checkbox" name="performance" />
+          Témoins (cookies) de performance (pour analyser l'utilisation du site)
+        </label>
+        <label>
+          <input type="checkbox" name="marketing" />
+          Témoins (cookies) de marketing (pour personnaliser la publicité)
+        </label>
+      </div>
+      <button
+        class="indie-flower-font btn botones-personalizados"
+        id="savePreferences"
+      >
+        Enregistrer préférences
+      </button>
+      <button
+        class="indie-flower-font btn botones-personalizados"
+        id="rejectAll"
+      >
+        Tout refuser
+      </button>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header random-background">
-                    <h5 class="modal-title mochiy-pop-font" id="modalProductName">Product Details</h5>
-                    <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <img id="modalProductImage" src="" alt="Product Image" class="img-fluid mb-3" />
-                    <p class="text-center mochiy-pop-font orange-font fs-5 lh-2 mb-0" id="modalProductSize"></p>
-                    <p class="text-center mochiy-pop-font orange-font fs-5 lh-2 mb-0" style="white-space: pre-wrap" id="modalProductPrice"></p>
-                </div>
-                <div class="modal-footer random-background">
-                    <button type="button" class="btn btn-secondary botones-personalizados" data-bs-dismiss="modal">Fermer</button>
-                </div>
+    <div
+      class="modal fade"
+      id="productModal"
+      tabindex="-1"
+      aria-labelledby="productModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header random-background">
+            <h5 class="modal-title mochiy-pop-font" id="modalProductName">
+              Product Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close text-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body py-0">
+            <img
+              id="modalProductImage"
+              src=""
+              alt="Product Image"
+              class="img-fluid mb-3"
+            />
+            <p
+              class="text-center mochiy-pop-font orange-font fs-5 lh-2 mb-0"
+              id="modalProductSize"
+            ></p>
+            <p
+              class="text-center mochiy-pop-font orange-font fs-5 lh-2 mb-0"
+              style="white-space: pre-wrap"
+              id="modalProductPrice"
+            ></p>
+
+            <div class="d-flex flex-row my-2">
+              <div class="col-2 p-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  shape-rendering="geometricPrecision"
+                  text-rendering="geometricPrecision"
+                  image-rendering="optimizeQuality"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  fill="orange"
+                  viewBox="0 0 512 330.845"
+                >
+                  <path
+                    d="M95.992 0c35.923 22.768 68.373 33.54 96.223 30.995 4.865 98.382-31.466 156.48-95.852 180.727C34.188 189.028-2.587 133.427.142 29.502 32.834 31.213 64.91 24.144 95.992 0zM76.731 103.923a73.156 73.156 0 016.88 6.658c6.723-10.822 13.89-20.757 21.461-29.895 21.401-25.849 11.702-20.867 41.389-20.867l-4.124 4.581c-12.676 14.086-16.952 21.417-27.343 36.429a425.653 425.653 0 00-27.95 46.499l-2.571 4.96-2.363-5.052c-4.359-9.359-9.581-17.95-15.808-25.625-6.228-7.676-11.667-12.684-20.112-18.479 3.87-12.702 22.288-6.201 30.541.791zm301.485 1.74l-35.138-.243V57.97a25.356 25.356 0 00-7.529-18.079 25.353 25.353 0 00-18.079-7.53H213.806c-.435 4.496-1.122 9.147-1.833 13.884H317.47c3.218 0 6.159 1.334 8.278 3.449 2.116 2.12 3.45 5.061 3.45 8.276v217.288H290.06a6.93 6.93 0 00-6.94 6.944 6.925 6.925 0 006.94 6.938h46.077a6.926 6.926 0 006.941-6.938v-7.885h28.044c3.177-72.232 106.9-82.195 117.451 0h22.782c5.868-70.433-28.909-97.805-81.803-103.996-3.805-16.53-11.062-31.874-19.26-47.037-9.747-18.025-12.016-17.297-32.076-17.621zM147.08 275.222a6.929 6.929 0 016.944 6.939 6.93 6.93 0 01-6.944 6.941H73.343c-7.022 0-13.413-3.06-18.082-7.882-4.623-4.821-7.527-11.411-7.527-18.392v-48.35a138.893 138.893 0 0013.881 7.815v40.535c0 3.334 1.375 6.51 3.609 8.824 2.119 2.197 4.98 3.606 8.077 3.606h73.779v-.036zm70.59-38.416c-25.963 0-47.019 21.059-47.019 47.019 0 25.961 21.056 47.02 47.019 47.02 25.961 0 47.017-21.059 47.017-47.02-.038-25.96-21.056-47.019-47.017-47.019zm0 28.942c-9.96 0-18.08 8.08-18.08 18.077 0 9.961 8.08 18.082 18.08 18.082 9.959 0 18.079-8.081 18.079-18.082-.042-9.997-8.12-18.077-18.079-18.077zm212.039-35.86c-25.959 0-47.016 21.059-47.016 47.018 0 25.96 21.057 47.021 47.016 47.021 25.963 0 47.02-21.061 47.02-47.021 0-25.959-21.057-47.018-47.02-47.018zm-18.077 47.018c0 9.961 8.076 18.079 18.077 18.079 10.001 0 18.079-8.077 18.079-18.079 0-9.999-8.078-18.076-18.079-18.076-9.978 0-18.077 8.095-18.077 18.076zm-30.038-151.174l-21.182-.392v45.06h44.866c-5.534-16.073-13.724-30.807-23.684-44.668zM96.049 14.47c30.429 19.287 59.636 30.128 83.227 27.971 4.118 83.335-28.373 134.27-82.908 154.808-52.671-19.224-85.542-68.035-83.23-156.073C43.7 42.778 71.71 33.379 96.049 14.47z"
+                  />
+                </svg>
+              </div>
+
+              <p class="text-muted muted-info mb-0">
+                Récupérer votre jeu gonflable gratuitement à l'entrepôt, ou
+                demandez une soumission pour une livraison avec ou sans
+                installation.
+              </p>
             </div>
+
+            <div class="d-flex flex-row my-2">
+              <div class="col-2 p-2">
+             <svg
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                fill="orange"
+                y="0px"
+                viewBox="0 0 122.88 122.84"
+                style="enable-background: new 0 0 122.88 122.84"
+                xml:space="preserve"
+              >
+                <style type="text/css">
+                  .st0 {
+                    fill-rule: evenodd;
+                    clip-rule: evenodd;
+                  }
+                </style>
+                <g>
+                  <path
+                    class="st0"
+                    d="M64.7,4.88c28.42,1.45,51.88,21.7,58.18,48.56h-0.01l-8.13,9.59l-7.82-9.59h-1.06l-8.17,9.64l-7.86-9.64h-1.95 l-8.13,9.59l-7.82-9.59h-1.03c0,0.05,0,0.1,0,0.15c0,2.26-1.92,4.22-4.7,5.14v45c0,5.26-2.15,10.04-5.61,13.5 c-3.46,3.46-8.24,5.61-13.5,5.61h0c-5.24,0-10.01-2.15-13.48-5.61l-0.01-0.01l-0.01-0.01c-3.46-3.47-5.61-8.24-5.61-13.48v-1.77 h8.18v1.77c0,3.01,1.23,5.75,3.2,7.72l0.02,0.02c1.97,1.97,4.71,3.2,7.72,3.2h0c3,0,5.73-1.23,7.72-3.22 c1.98-1.98,3.22-4.72,3.22-7.72V58.35c-2.25-1.02-3.74-2.77-3.74-4.76c0-0.05,0-0.1,0-0.15H51l-7.82,9.59l-8.13-9.59H33.1 l-7.86,9.64l-8.17-9.64H16l-7.82,9.59l-8.13-9.59H0C6.25,26.79,29.39,6.64,57.52,4.92L61.27,0L64.7,4.88L64.7,4.88z"
+                  />
+                </g>
+              </svg>                    
+                </div>
+ 
+                <p class="text-muted muted-info mb-0">
+                Annulation sans frais en cas de pluie. En cas d'intempéries,
+                vous pouvez annuler sans frais votre réservation.
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer random-background">
+            <button
+              type="button"
+              class="btn btn-secondary botones-personalizados"
+              data-bs-dismiss="modal"
+            >
+              Fermer
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="whatsapp_wrap">
-        <div class="whatsapp_btn">
-          <a href="https://wa.me/15147954730" target="_blank" data-toggle="tooltip" data-placement="left" title="Envíanos un mensaje"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="width: 100%; height: 100%; fill: rgb(255, 255, 255); stroke: none;"><path d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"></path></svg></a>
-        </div>
+      <div class="whatsapp_btn">
+        <a
+          href="https://wa.me/15147954730"
+          target="_blank"
+          data-toggle="tooltip"
+          data-placement="left"
+          title="Envíanos un mensaje"
+          ><svg
+            viewBox="0 0 32 32"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            style="
+              width: 100%;
+              height: 100%;
+              fill: rgb(255, 255, 255);
+              stroke: none;
+            "
+          >
+            <path
+              d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"
+            ></path></svg>
+        </a>
       </div>
+    </div>
 
+    <footer class="footer-container d-flex flex-row">
 
+        <div class="col-4">
+            <img class="img-fluid" src="/img/logo.png" alt="">
+        </div>
+
+        <div class="col-4 text-white">
+            center
+        </div>
+
+        <div class="col-4 text-white">
+            right
+        </div>
+
+    </footer>
 
     <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
 
     <script>
-        // Función para cargar el archivo JSON
-        async function loadJSON() {
-            const response = await fetch('data.json');
-            const data = await response.json();
-            displayData(data);
-            // Llamar a la función de cambio de fondo aleatorio después de que se muestre la data
-            changeRandomBackground();
-        }
+      // Función para cargar el archivo JSON
+      async function loadJSON() {
+        const response = await fetch("data.json");
+        const data = await response.json();
+        displayData(data);
+        // Llamar a la función de cambio de fondo aleatorio después de que se muestre la data
+        changeRandomBackground();
+      }
 
-        // Función para mostrar los datos JSON en el HTML
-        function displayData(data) {
-            // Actualizar el título del documento
-            document.title = data.companyName;
+      // Función para mostrar los datos JSON en el HTML
+      function displayData(data) {
+        // Actualizar el título del documento
+        document.title = data.companyName;
 
-            const contentDiv = document.getElementById('content');
+        const contentDiv = document.getElementById("content");
 
-            // Contenedor para logo de la compañía y nombre de la compañía
-            const headerContainer = document.createElement('section');
-            headerContainer.className = 'header-container d-flex';
+        // Contenedor para logo de la compañía y nombre de la compañía
+        const headerContainer = document.createElement("section");
+        headerContainer.className = "header-container d-flex";
 
-            // Crear un contenedor para el logo
-            const logoContainer = document.createElement('article');
-            logoContainer.className = 'logo-container my-3 d-flex';
+        // Crear un contenedor para el logo
+        const logoContainer = document.createElement("article");
+        logoContainer.className = "logo-container my-3 d-flex";
 
-            // Mostrar logo de la compañía
-            const mainLogo = document.createElement('img');
-            mainLogo.className = 'img-fluid align-self-center';
-            mainLogo.src = `img/${data.mainLogo}`; // Ajuste para mostrar la imagen
-            mainLogo.alt = `${data.companyName} Logo`;
-            logoContainer.appendChild(mainLogo);
+        // Mostrar logo de la compañía
+        const mainLogo = document.createElement("img");
+        mainLogo.className = "img-fluid align-self-center";
+        mainLogo.src = `img/${data.mainLogo}`; // Ajuste para mostrar la imagen
+        mainLogo.alt = `${data.companyName} Logo`;
+        logoContainer.appendChild(mainLogo);
 
-            headerContainer.appendChild(logoContainer);
+        headerContainer.appendChild(logoContainer);
 
-            // Crear un contenedor para los correos electrónicos y teléfonos
-            const contactInfo = document.createElement('div');
-            contactInfo.className = 'contact-info-container';
+        // Crear un contenedor para los correos electrónicos y teléfonos
+        const contactInfo = document.createElement("div");
+        contactInfo.className = "contact-info-container w-100";
 
-            // Mostrar nombre de la compañía
-            const companyName = document.createElement('h1');
-            companyName.className = 'text-primary text-center brown-font mt-2 align-items-center d-flex mystery-font justify-content-center';
-            companyName.textContent = data.companyName;
-            contactInfo.appendChild(companyName);
+        // Mostrar nombre de la compañía
+        const companyName = document.createElement("h1");
+        companyName.className =
+          "text-primary text-center brown-font mt-2 align-items-center d-flex mystery-font justify-content-center";
+        companyName.textContent = data.companyName;
+        contactInfo.appendChild(companyName);
 
-            const reservationMail = document.createElement('p');
-            reservationMail.className = 'orange-font lh-1 indie-flower-font fs-5';
-            reservationMail.textContent = `${data.reservationMail} ${data.email}`;
-            contactInfo.appendChild(reservationMail);
-            
-            const reservationPhone = document.createElement('p');
-            reservationPhone.className = 'orange-font lh-1 indie-flower-font fs-5';
-            reservationPhone.textContent = `${data.reservationPhone} ${data.phone}`;
-            contactInfo.appendChild(reservationPhone);
+        const address = document.createElement("p");
+        address.className =
+          "orange-font mochiy-pop-font mb-2 fs-5 lh-2 text-center";
+        address.textContent = `${data.address}`;
+        contactInfo.appendChild(address);
 
-            headerContainer.appendChild(contactInfo);
-            contentDiv.appendChild(headerContainer);
+        const reservationMail = document.createElement("p");
+        reservationMail.className =
+          "orange-font mb-0 lh-2 mochiy-pop-font text-center";
+        reservationMail.textContent = `${data.reservationMail} ${data.email}`;
+        contactInfo.appendChild(reservationMail);
 
-            // Contenedor para productos e introducción
-            const productsContainer = document.createElement('div');
-            productsContainer.className = 'products-container';
+        const reservationPhone = document.createElement("p");
+        reservationPhone.className =
+          "orange-font mb-0 lh-2 mochiy-pop-font text-center mb-4";
+        reservationPhone.textContent = `${data.reservationPhone} ${data.phone}`;
+        contactInfo.appendChild(reservationPhone);
 
-            // Crear una fila para las tarjetas de productos
-            const productsRow = document.createElement('div');
-            productsRow.className = 'row';
-            data.products.forEach(product => {
-                const productCol = document.createElement('div');
-                productCol.className = 'col-md-6 col-xs-2 mb-4';
+        headerContainer.appendChild(contactInfo);
+        contentDiv.appendChild(headerContainer);
 
-                const productCard = document.createElement('div');
-                productCard.className = 'card';
+        // Contenedor para productos e introducción
+        const productsContainer = document.createElement("div");
+        productsContainer.className = "products-container";
 
-                // Crear un contenedor para la imagen
-                const productImgContainer = document.createElement('div');
-                productImgContainer.className = 'image-container d-flex justify-content-center my-3';
+        // Crear una fila para las tarjetas de productos
+        const productsRow = document.createElement("div");
+        productsRow.className = "row";
+        data.products.forEach((product) => {
+          const productCol = document.createElement("div");
+          productCol.className = "col-md-6 col-xs-2 mb-4";
 
-                const productImg = document.createElement('img');
-                productImg.src = `img/${product.imageThumbnail}`;
-                productImg.className = 'card-img-top mx-5';
-                productImg.alt = `${product.name} Image`;
-                //productImg.style.height = '226px';
+          const productCard = document.createElement("div");
+          productCard.className = "card";
 
-                // Añadir la imagen al contenedor de la imagen
-                productImgContainer.appendChild(productImg);
+          // Crear un contenedor para la imagen
+          const productImgContainer = document.createElement("div");
+          productImgContainer.className =
+            "image-container d-flex justify-content-center my-3";
 
-                const iconCTA = document.createElement('img');
-                iconCTA.src = 'img/tap.svg';
-                iconCTA.className = 'icon-cta position-absolute';
-                iconCTA.alt = 'Tap to open';
+          const productImg = document.createElement("img");
+          productImg.src = `img/${product.imageThumbnail}`;
+          productImg.className = "card-img-top mx-5";
+          productImg.alt = `${product.name} Image`;
+          //productImg.style.height = '226px';
 
-                // Añadir la imagen al contenedor de la imagen
-                productImgContainer.appendChild(iconCTA);
+          // Añadir la imagen al contenedor de la imagen
+          productImgContainer.appendChild(productImg);
 
-                const productCardBody = document.createElement('div');
-                productCardBody.className = 'card-body random-background bg-fixed';
+          const iconCTA = document.createElement("img");
+          iconCTA.src = "img/tap.svg";
+          iconCTA.className = "icon-cta position-absolute";
+          iconCTA.alt = "Tap to open";
 
-                const productLink = document.createElement('a');
-                productLink.href = '#';
-                productLink.className = 'stretched-link';
-                productLink.dataset.bsToggle = 'modal';
-                productLink.dataset.bsTarget = '#productModal';
-                productLink.onclick = () => showProductDetails(product);
+          // Añadir la imagen al contenedor de la imagen
+          productImgContainer.appendChild(iconCTA);
 
-                const productCardText = document.createElement('p');
-                productCardText.className = 'card-text text-center m-0 mochiy-pop-font fs-3  text-white';
-                productCardText.textContent = product.name;
+          const productCardBody = document.createElement("div");
+          productCardBody.className = "card-body random-background bg-fixed";
 
-                productCardBody.appendChild(productCardText);
-                productCardBody.appendChild(productLink);
+          const productLink = document.createElement("a");
+          productLink.href = "#";
+          productLink.className = "stretched-link";
+          productLink.dataset.bsToggle = "modal";
+          productLink.dataset.bsTarget = "#productModal";
+          productLink.onclick = () => showProductDetails(product);
 
-                // Añadir el contenedor de la imagen y el cuerpo de la tarjeta al productCard
-                productCard.appendChild(productImgContainer);
-                productCard.appendChild(productCardBody);
+          const productCardText = document.createElement("p");
+          productCardText.className =
+            "card-text text-center m-0 mochiy-pop-font fs-3  text-white";
+          productCardText.textContent = product.name;
 
-                productCol.appendChild(productCard);
-                productsRow.appendChild(productCol);
-            });
-            productsContainer.appendChild(productsRow);
+          productCardBody.appendChild(productCardText);
+          productCardBody.appendChild(productLink);
 
-            contentDiv.appendChild(productsContainer);
+          // Añadir el contenedor de la imagen y el cuerpo de la tarjeta al productCard
+          productCard.appendChild(productImgContainer);
+          productCard.appendChild(productCardBody);
 
-            // Crear un contenedor div con clase row para introTitle e introParagraph
-            const introContainer = document.createElement('div');
-            introContainer.className = 'row my-4 p-2 bg-primary';
+          productCol.appendChild(productCard);
+          productsRow.appendChild(productCol);
+        });
+        productsContainer.appendChild(productsRow);
 
-            // Mostrar introducción
-            const introTitle = document.createElement('h2');
-            introTitle.className = 'text-white mystery-font text-center mt-3';
-            introTitle.textContent = data.descriptions.introduction[0].title;
-            introContainer.appendChild(introTitle);
-            
-            const introParagraph = document.createElement('p');
-            introParagraph.className = 'text-white fs-4';
-            introParagraph.textContent = data.descriptions.introduction[1].descriptions.map(paragraph => paragraph.join(' ')).join('\n');
-            introContainer.appendChild(introParagraph);
+        contentDiv.appendChild(productsContainer);
 
-            productsContainer.appendChild(introContainer);
+        // Crear un contenedor div con clase row para introTitle e introParagraph
+        const introContainer = document.createElement("div");
+        introContainer.className = "row my-4 p-2 bg-primary";
 
-            // Contenedor para reglas de seguridad y reglas de arrendatario
-            const rulesContainer = document.createElement('div');
-            rulesContainer.className = 'row my-4 p-2 bg-primary';
+        // Mostrar introducción
+        const introTitle = document.createElement("h2");
+        introTitle.className = "text-white mystery-font text-center mt-3";
+        introTitle.textContent = data.descriptions.introduction[0].title;
+        introContainer.appendChild(introTitle);
 
-            // Mostrar reglas de seguridad
-            const rulesTitle = document.createElement('h2');
-            rulesTitle.className = 'card-text text-center mt-2 mochiy-pop-font fs-3 text-white';
-            rulesTitle.textContent = data.descriptions.rules[0].title;
-            rulesContainer.appendChild(rulesTitle);
+        const introParagraph = document.createElement("p");
+        introParagraph.className = "text-white fs-4";
+        introParagraph.textContent =
+          data.descriptions.introduction[1].descriptions
+            .map((paragraph) => paragraph.join(" "))
+            .join("\n");
+        introContainer.appendChild(introParagraph);
 
-            const rulesList = document.createElement('ul');
-            rulesList.className = 'list-group my-5';
-            data.descriptions.rules[1].rulesItems.forEach(rule => {
-                const listItem = document.createElement('li');
-                listItem.className = 'list-group-item';
-                listItem.textContent = rule[0];
-                rulesList.appendChild(listItem);
-            });
-            rulesContainer.appendChild(rulesList);
+        productsContainer.appendChild(introContainer);
 
-            // Mostrar reglas de arrendatario
-            const rulesTenantTitle = document.createElement('h2');
-            rulesTenantTitle.className = 'card-text text-center m-0 mochiy-pop-font fs-3 text-white';
-            rulesTenantTitle.textContent = data.descriptions.rulesTenant[0].title;
-            rulesContainer.appendChild(rulesTenantTitle);
+        // Contenedor para reglas de seguridad y reglas de arrendatario
+        const rulesContainer = document.createElement("div");
+        rulesContainer.className = "row my-4 p-2 bg-primary";
 
-            const rulesTenantList = document.createElement('ul');
-            rulesTenantList.className = 'list-group mt-5';
-            data.descriptions.rulesTenant[1].rulesItems.forEach(rule => {
-                const listItem = document.createElement('li');
-                listItem.className = 'list-group-item';
-                listItem.textContent = rule[0];
-                rulesTenantList.appendChild(listItem);
-            });
-            rulesContainer.appendChild(rulesTenantList);
+        // Mostrar reglas de seguridad
+        const rulesTitle = document.createElement("h2");
+        rulesTitle.className =
+          "card-text text-center mt-2 mochiy-pop-font fs-3 text-white";
+        rulesTitle.textContent = data.descriptions.rules[0].title;
+        rulesContainer.appendChild(rulesTitle);
 
-            contentDiv.appendChild(rulesContainer);
-        }
+        const rulesList = document.createElement("ul");
+        rulesList.className = "list-group my-5";
+        data.descriptions.rules[1].rulesItems.forEach((rule) => {
+          const listItem = document.createElement("li");
+          listItem.className = "list-group-item";
+          listItem.textContent = rule[0];
+          rulesList.appendChild(listItem);
+        });
+        rulesContainer.appendChild(rulesList);
 
-        // Función para mostrar los detalles del producto en el modal
-        function showProductDetails(product) {
-            document.getElementById('modalProductName').textContent = product.name;
-            document.getElementById('modalProductImage').src = `img/${product.image}`;
-            document.getElementById('modalProductSize').textContent = `Size: ${product.size}`;
-            document.getElementById('modalProductPrice').textContent = `Price: ${product.price}`;
-        }
+        // Mostrar reglas de arrendatario
+        const rulesTenantTitle = document.createElement("h2");
+        rulesTenantTitle.className =
+          "card-text text-center m-0 mochiy-pop-font fs-3 text-white";
+        rulesTenantTitle.textContent = data.descriptions.rulesTenant[0].title;
+        rulesContainer.appendChild(rulesTenantTitle);
 
-        // Función para cambiar aleatoriamente la clase de fondo
-        function changeRandomBackground() {
-            const elements = document.querySelectorAll('.random-background');
-            const numberOfColors = 12; // Número total de colores definidos
-            elements.forEach(element => {
-                // Quitar cualquier clase previa de fondo aleatorio
-                for (let i = 1; i <= numberOfColors; i++) {
-                    element.classList.remove(`random-background-${i}`);
-                }
-                // Añadir una clase aleatoria de fondo
-                const randomColorClass = `random-background-${Math.floor(Math.random() * numberOfColors) + 1}`;
-                element.classList.add(randomColorClass);
-            });
-        }
+        const rulesTenantList = document.createElement("ul");
+        rulesTenantList.className = "list-group mt-5";
+        data.descriptions.rulesTenant[1].rulesItems.forEach((rule) => {
+          const listItem = document.createElement("li");
+          listItem.className = "list-group-item";
+          listItem.textContent = rule[0];
+          rulesTenantList.appendChild(listItem);
+        });
+        rulesContainer.appendChild(rulesTenantList);
 
-        // Cargar y mostrar el JSON al cargar la página
-        window.onload = loadJSON;
+        contentDiv.appendChild(rulesContainer);
+
+
+        // Contenedor para FAQs
+        const faqContainer = document.createElement("div");
+        faqContainer.className = "row my-4 p-2 bg-primary";
+
+        // Mostrar FAQs
+        const faqTitle = document.createElement("h2");
+        faqTitle.className =
+        "card-text text-center mt-2 mochiy-pop-font fs-3 text-white";
+        faqTitle.textContent = "Foire aux questions";
+        faqContainer.appendChild(faqTitle);
+
+        const faqList = document.createElement("ul");
+        faqList.className = "list-group faq-container";
+        data.faq.forEach((faqItem) => {
+        const questionItem = document.createElement("li");
+        questionItem.className = "list-group-item faq-item";
+        questionItem.textContent = faqItem[0];
+        faqList.appendChild(questionItem);
+
+        });
+        faqContainer.appendChild(faqList);
+
+        contentDiv.appendChild(faqContainer);
+
+      }
+
+      // Función para mostrar los detalles del producto en el modal
+      function showProductDetails(product) {
+        document.getElementById("modalProductName").textContent = product.name;
+        document.getElementById(
+          "modalProductImage"
+        ).src = `img/${product.image}`;
+        document.getElementById(
+          "modalProductSize"
+        ).textContent = `Dimensions : ${product.size}`;
+        document.getElementById(
+          "modalProductPrice"
+        ).textContent = `Prix : ${product.price}`;
+      }
+
+      // Función para cambiar aleatoriamente la clase de fondo
+      function changeRandomBackground() {
+        const elements = document.querySelectorAll(".random-background");
+        const numberOfColors = 12; // Número total de colores definidos
+        elements.forEach((element) => {
+          // Quitar cualquier clase previa de fondo aleatorio
+          for (let i = 1; i <= numberOfColors; i++) {
+            element.classList.remove(`random-background-${i}`);
+          }
+          // Añadir una clase aleatoria de fondo
+          const randomColorClass = `random-background-${
+            Math.floor(Math.random() * numberOfColors) + 1
+          }`;
+          element.classList.add(randomColorClass);
+        });
+      }
+
+      // Cargar y mostrar el JSON al cargar la página
+      window.onload = loadJSON;
     </script>
 
-
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LS0XWKF506"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-LS0XWKF506"
+    ></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag('config', 'G-LS0XWKF506');
+      gtag("config", "G-LS0XWKF506");
     </script>
 
     <!-- Cookie Consent Banner -->
     <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const cookieBanner = document.getElementById('cookieConsentBanner');
-    const savePreferencesButton = document.getElementById('savePreferences');
-    const rejectAllButton = document.getElementById('rejectAll');
-    const checkboxes = document.querySelectorAll('.cookie-options input[type="checkbox"]');
+      document.addEventListener("DOMContentLoaded", function () {
+        const cookieBanner = document.getElementById("cookieConsentBanner");
+        const savePreferencesButton =
+          document.getElementById("savePreferences");
+        const rejectAllButton = document.getElementById("rejectAll");
+        const checkboxes = document.querySelectorAll(
+          '.cookie-options input[type="checkbox"]'
+        );
 
-    savePreferencesButton.addEventListener('click', function() {
-        let preferences = {};
-        checkboxes.forEach(function(checkbox) {
+        savePreferencesButton.addEventListener("click", function () {
+          let preferences = {};
+          checkboxes.forEach(function (checkbox) {
             preferences[checkbox.name] = checkbox.checked;
+          });
+          saveCookiePreferences(preferences);
+          cookieBanner.style.display = "none";
+          loadGoogleAnalytics(preferences);
         });
-        saveCookiePreferences(preferences);
-        cookieBanner.style.display = 'none';
-        loadGoogleAnalytics(preferences);
-    });
 
-    rejectAllButton.addEventListener('click', function() {
-        let preferences = {
+        rejectAllButton.addEventListener("click", function () {
+          let preferences = {
             essential: true,
             performance: false,
-            marketing: false
-        };
-        saveCookiePreferences(preferences);
-        cookieBanner.style.display = 'none';
-    });
+            marketing: false,
+          };
+          saveCookiePreferences(preferences);
+          cookieBanner.style.display = "none";
+        });
 
-    function saveCookiePreferences(preferences) {
-        // Guardar las preferencias de cookies en localStorage o cookies
-        localStorage.setItem('cookie_preferences', JSON.stringify(preferences));
-    }
+        function saveCookiePreferences(preferences) {
+          // Guardar las preferencias de cookies en localStorage o cookies
+          localStorage.setItem(
+            "cookie_preferences",
+            JSON.stringify(preferences)
+          );
+        }
 
-    function loadCookiePreferences() {
-        // Cargar las preferencias de cookies guardadas
-        const preferences = localStorage.getItem('cookie_preferences');
-        if (preferences) {
+        function loadCookiePreferences() {
+          // Cargar las preferencias de cookies guardadas
+          const preferences = localStorage.getItem("cookie_preferences");
+          if (preferences) {
             const parsedPreferences = JSON.parse(preferences);
-            checkboxes.forEach(function(checkbox) {
-                checkbox.checked = parsedPreferences[checkbox.name];
+            checkboxes.forEach(function (checkbox) {
+              checkbox.checked = parsedPreferences[checkbox.name];
             });
             loadGoogleAnalytics(parsedPreferences);
+          }
         }
-    }
 
-    function loadGoogleAnalytics(preferences) {
-        if (preferences.performance) {
+        function loadGoogleAnalytics(preferences) {
+          if (preferences.performance) {
             // Cargar Google Analytics
-            const script = document.getElementById('googleAnalyticsScript');
+            const script = document.getElementById("googleAnalyticsScript");
             if (script) {
-                script.src = script.src; // Recargar el script
-                const config = document.getElementById('googleAnalyticsConfig');
-                if (config) {
-                    config.type = 'text/javascript'; // Asegurarse que se ejecute el script de configuración
-                }
+              script.src = script.src; // Recargar el script
+              const config = document.getElementById("googleAnalyticsConfig");
+              if (config) {
+                config.type = "text/javascript"; // Asegurarse que se ejecute el script de configuración
+              }
             }
 
             // Verificar si Google Analytics está cargado
             setTimeout(() => {
-                if (isGoogleAnalyticsLoaded() && isGtagLoaded()) {
-                    console.log('Google Analytics está cargado correctamente.');
-                } else {
-                    console.log('Google Analytics no se cargó correctamente.');
-                }
+              if (isGoogleAnalyticsLoaded() && isGtagLoaded()) {
+                console.log("Google Analytics está cargado correctamente.");
+              } else {
+                console.log("Google Analytics no se cargó correctamente.");
+              }
             }, 1000); // Dar tiempo para cargar el script
+          }
         }
-    }
 
-    function isGoogleAnalyticsLoaded() {
-        const script = document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
-        return !!script;
-    }
+        function isGoogleAnalyticsLoaded() {
+          const script = document.querySelector(
+            'script[src*="googletagmanager.com/gtag/js"]'
+          );
+          return !!script;
+        }
 
-    function isGtagLoaded() {
-        return typeof gtag === 'function';
-    }
+        function isGtagLoaded() {
+          return typeof gtag === "function";
+        }
 
-    // Mostrar el banner solo si no se han guardado preferencias previamente
-    if (!localStorage.getItem('cookie_preferences')) {
-        cookieBanner.style.display = 'block';
-    } else {
-        loadCookiePreferences();
-    }
-});
-
-
-
-        
+        // Mostrar el banner solo si no se han guardado preferencias previamente
+        if (!localStorage.getItem("cookie_preferences")) {
+          cookieBanner.style.display = "block";
+        } else {
+          loadCookiePreferences();
+        }
+      });
     </script>
-
-</body>
+  </body>
 </html>
