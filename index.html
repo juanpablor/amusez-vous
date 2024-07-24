@@ -174,7 +174,7 @@
             <ul id="faqList" class="list-group"></ul>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer</button>
             </div>
         </div>
         </div>
@@ -204,8 +204,8 @@
     
         <div class="col-12 col-sm-4 mb-4 mb-sm-0 d-flex justify-content-center">
             <div class="align-self-center p-4">
-                <h3>QUESTIONS ET RÉGLEMENTATION POUR LA LOCATION DE NOS JEUX GONFLABLES</h3>
-                <p>Vous avez des questions sur le fonctionnement de la location de nos jeux gonflables. Consulter notre section Questions fréquentes (FAQ), elle répondra à la majorité de ceux-ci.</p>
+                <h3>Questions et réglementation pour la location de nos jeux gonflables</h3>
+                <p>Vous avez des questions sur le fonctionnement de la location de nos jeux gonflables. Consulter notre section Foire aux questions (FAQ), elle répondra à la majorité de celles-ci.</p>
 
                 <a id="faqButton" class="btn btn-primary text-bg-light" data-bs-toggle="modal" data-bs-target="#faqModal">
                     Voir FAQs
@@ -285,17 +285,17 @@ async function loadJSON() {
     contactInfo.appendChild(companyName);
 
     const address = document.createElement("p");
-    address.className = "orange-font mochiy-pop-font mb-2 fs-5 lh-2 text-center";
+    address.className = "text-primary mochiy-pop-font mb-2 fs-5 lh-2 text-center";
     address.textContent = `${data.address}`;
     contactInfo.appendChild(address);
 
     const reservationMail = document.createElement("p");
-    reservationMail.className = "orange-font mb-0 lh-2 mochiy-pop-font text-center";
+    reservationMail.className = "text-primary mb-0 lh-2 mochiy-pop-font text-center";
     reservationMail.textContent = `${data.reservationMail} ${data.email}`;
     contactInfo.appendChild(reservationMail);
 
     const reservationPhone = document.createElement("p");
-    reservationPhone.className = "orange-font mb-0 lh-2 mochiy-pop-font text-center mb-4";
+    reservationPhone.className = "text-primary mb-0 lh-2 mochiy-pop-font text-center mb-4";
     reservationPhone.textContent = `${data.reservationPhone} ${data.phone}`;
     contactInfo.appendChild(reservationPhone);
 
