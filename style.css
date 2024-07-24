@@ -3,15 +3,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 :root {
-    --bs-primary-rgb: 219, 106, 41; /* Customize your primary color */
+    --bs-primary-rgb: 237, 54, 134; /* Customize your primary color */
     --bs-heading-color: 219, 106, 41;
-    --bs-link-color-rgb: 219, 106, 41; /* Customize your secondary color */
+    --bs-link-color-rgb: 237, 54, 134; /* Customize your secondary color */
+
 }
 body {
     background-color:  #fff4f4;
     background-image: url('/img/bg-image.png');
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+.btn-primary {
+    background: #ed3686;
+    border-color: #ed3686;
+}
+
+.btn-primary:hover {
+    background: #f476ac;
+    border-color: #f476ac;
 }
     
 .mystery-font {
@@ -208,12 +219,6 @@ body {
     filter: invert(1);
 }
 
-.botones-personalizados {
-    --bs-btn-bg: #f0a71f; /* Cambiar el color de fondo a un verde */
-    --bs-btn-hover-bg: #f0a71f; /* Cambiar el color de fondo al pasar el ratón */
-    --bs-btn-border-color: #f0a71f; /* Cambiar el color del borde */
-}
-
 .faq-item {
     color:rgb(82, 82, 82);
 }
@@ -234,9 +239,10 @@ body {
     width: 150px;
 }
 .footer-container .icons {
-    filter: brightness(0) saturate(100%) invert(66%) sepia(93%) saturate(703%) hue-rotate(347deg) brightness(99%) contrast(89%);
     max-width: 32px;
     max-height: 32px;
+    /*#f476ac*/
+    filter: brightness(0) saturate(100%) invert(65%) sepia(35%) saturate(1615%) hue-rotate(295deg) brightness(101%) contrast(91%);
 }
 .footer-container .social-icons {
     max-width: 56px;
