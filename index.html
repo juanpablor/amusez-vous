@@ -161,6 +161,27 @@
       </div>
     </div>
 
+
+    <!-- Modal para FAQs -->
+    <div class="modal fade" id="faqModal" tabindex="-1" aria-labelledby="faqModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content bg-primary">
+            <div class="modal-header">
+            <h2 class="modal-title card-text text-center mt-2 mochiy-pop-font fs-3 text-white" id="faqModalLabel">Foire aux questions</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <ul id="faqList" class="list-group"></ul>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
     <div class="whatsapp_wrap">
       <div class="whatsapp_btn">
         <a
@@ -169,39 +190,48 @@
           data-toggle="tooltip"
           data-placement="left"
           title="Envíanos un mensaje"
-          ><svg
-            viewBox="0 0 32 32"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            style="
-              width: 100%;
-              height: 100%;
-              fill: rgb(255, 255, 255);
-              stroke: none;
-            "
           >
-            <path
-              d="M19.11 17.205c-.372 0-1.088 1.39-1.518 1.39a.63.63 0 0 1-.315-.1c-.802-.402-1.504-.817-2.163-1.447-.545-.516-1.146-1.29-1.46-1.963a.426.426 0 0 1-.073-.215c0-.33.99-.945.99-1.49 0-.143-.73-2.09-.832-2.335-.143-.372-.214-.487-.6-.487-.187 0-.36-.043-.53-.043-.302 0-.53.115-.746.315-.688.645-1.032 1.318-1.06 2.264v.114c-.015.99.472 1.977 1.017 2.78 1.23 1.82 2.506 3.41 4.554 4.34.616.287 2.035.888 2.722.888.817 0 2.15-.515 2.478-1.318.13-.33.244-.73.244-1.088 0-.058 0-.144-.03-.215-.1-.172-2.434-1.39-2.678-1.39zm-2.908 7.593c-1.747 0-3.48-.53-4.942-1.49L7.793 24.41l1.132-3.337a8.955 8.955 0 0 1-1.72-5.272c0-4.955 4.04-8.995 8.997-8.995S25.2 10.845 25.2 15.8c0 4.958-4.04 8.998-8.998 8.998zm0-19.798c-5.96 0-10.8 4.842-10.8 10.8 0 1.964.53 3.898 1.546 5.574L5 27.176l5.974-1.92a10.807 10.807 0 0 0 16.03-9.455c0-5.958-4.842-10.8-10.802-10.8z"
-            ></path></svg>
+          <img src="/img/whatsapp-icon.svg" alt="">
         </a>
       </div>
     </div>
 
-    <footer class="footer-container d-flex flex-row">
-
-        <div class="col-4">
-            <img class="img-fluid" src="/img/logo.png" alt="">
+    <footer class="footer-container d-flex flex-column flex-sm-row p-4 bg-dark text-white">
+        <div class="d-flex flex-column col-12 col-sm-4 mb-4 mb-sm-0">
+            <img class="img-fluid mb-3 mx-auto" src="/img/logo.png" alt="AmusezVous Logo">
+            <p>AmusezVous est une entreprise de location de jeux gonflables. Sur la rive sud de Montréal, Sainte-Julie. Nous sommes spécialisés dans la location de jeux gonflables pour les enfants de 8 ans et moins.</p>
         </div>
+    
+        <div class="col-12 col-sm-4 mb-4 mb-sm-0 d-flex justify-content-center">
+            <div class="align-self-center p-4">
+                <h3>QUESTIONS ET RÉGLEMENTATION POUR LA LOCATION DE NOS JEUX GONFLABLES</h3>
+                <p>Vous avez des questions sur le fonctionnement de la location de nos jeux gonflables. Consulter notre section Questions fréquentes (FAQ), elle répondra à la majorité de ceux-ci.</p>
 
-        <div class="col-4 text-white">
-            center
+                <a id="faqButton" class="btn-primary" data-bs-toggle="modal" data-bs-target="#faqModal">
+                    Voir FAQs
+                  </a>
+
+
+            </div>
         </div>
+    
+        <div class="col-12 col-sm-4">
 
-        <div class="col-4 text-white">
-            right
+
+                <p><img class="icons email" src="/img/envelope-icon.svg" alt="" > <a href="emailto:amusez.vous@hotmail.com">amusez.vous@hotmail.com</a></p>
+                <p><img class="icons phone" src="/img/mobile-icon.svg" alt="" > <a href="tel:+15147954730">(514) 795 4730</a></p>
+
+            <p>Suivez-nous sur:</p>
+                <a href="https://www.instagram.com/amusezvous2007/" target="_blank">
+                    <img class="social-icons" src="/img/instagram-icon.svg" alt="">
+                </a>
+                <a href="https://www.instagram.com/amusezvous2007/" target="_blank">
+                    <img class="social-icons" src="/img/facebook-icon.svg" alt="">
+                </a>
+            <p>Tous les droits reserves &copy; <span id="current-year"></span></p>
         </div>
-
     </footer>
+    
 
     <!-- Bootstrap Bundle with Popper -->
     <script
@@ -211,256 +241,212 @@
     ></script>
 
     <script>
-      // Función para cargar el archivo JSON
-      async function loadJSON() {
-        const response = await fetch("data.json");
-        const data = await response.json();
-        displayData(data);
-        // Llamar a la función de cambio de fondo aleatorio después de que se muestre la data
-        changeRandomBackground();
+        // Obtiene el año actual
+        var currentYear = new Date().getFullYear();
+    
+        // Inserta el año actual en el elemento con id 'current-year'
+        document.getElementById('current-year').textContent = currentYear;
+      </script>
+
+    <script>
+// Función para cargar el archivo JSON
+async function loadJSON() {
+    const response = await fetch("data.json");
+    const data = await response.json();
+    displayData(data);
+    changeRandomBackground();
+  }
+
+  // Función para mostrar los datos JSON en el HTML
+  function displayData(data) {
+    document.title = data.companyName;
+    const contentDiv = document.getElementById("content");
+
+    const headerContainer = document.createElement("section");
+    headerContainer.className = "header-container d-flex";
+
+    const logoContainer = document.createElement("article");
+    logoContainer.className = "logo-container my-3 d-flex";
+
+    const mainLogo = document.createElement("img");
+    mainLogo.className = "img-fluid align-self-center";
+    mainLogo.src = `img/${data.mainLogo}`;
+    mainLogo.alt = `${data.companyName} Logo`;
+    logoContainer.appendChild(mainLogo);
+
+    headerContainer.appendChild(logoContainer);
+
+    const contactInfo = document.createElement("div");
+    contactInfo.className = "contact-info-container w-100";
+
+    const companyName = document.createElement("h1");
+    companyName.className = "text-primary text-center brown-font mt-2 align-items-center d-flex mystery-font justify-content-center";
+    companyName.textContent = data.companyName;
+    contactInfo.appendChild(companyName);
+
+    const address = document.createElement("p");
+    address.className = "orange-font mochiy-pop-font mb-2 fs-5 lh-2 text-center";
+    address.textContent = `${data.address}`;
+    contactInfo.appendChild(address);
+
+    const reservationMail = document.createElement("p");
+    reservationMail.className = "orange-font mb-0 lh-2 mochiy-pop-font text-center";
+    reservationMail.textContent = `${data.reservationMail} ${data.email}`;
+    contactInfo.appendChild(reservationMail);
+
+    const reservationPhone = document.createElement("p");
+    reservationPhone.className = "orange-font mb-0 lh-2 mochiy-pop-font text-center mb-4";
+    reservationPhone.textContent = `${data.reservationPhone} ${data.phone}`;
+    contactInfo.appendChild(reservationPhone);
+
+    headerContainer.appendChild(contactInfo);
+    contentDiv.appendChild(headerContainer);
+
+    const productsContainer = document.createElement("div");
+    productsContainer.className = "products-container";
+
+    const productsRow = document.createElement("div");
+    productsRow.className = "row";
+    data.products.forEach((product) => {
+      const productCol = document.createElement("div");
+      productCol.className = "col-md-6 col-xs-2 mb-4";
+
+      const productCard = document.createElement("div");
+      productCard.className = "card";
+
+      const productImgContainer = document.createElement("div");
+      productImgContainer.className = "image-container d-flex justify-content-center my-3";
+
+      const productImg = document.createElement("img");
+      productImg.src = `img/${product.imageThumbnail}`;
+      productImg.className = "card-img-top mx-5";
+      productImg.alt = `${product.name} Image`;
+
+      productImgContainer.appendChild(productImg);
+
+      const iconCTA = document.createElement("img");
+      iconCTA.src = "img/tap.svg";
+      iconCTA.className = "icon-cta position-absolute";
+      iconCTA.alt = "Tap to open";
+
+      productImgContainer.appendChild(iconCTA);
+
+      const productCardBody = document.createElement("div");
+      productCardBody.className = "card-body random-background bg-fixed";
+
+      const productLink = document.createElement("a");
+      productLink.href = "#";
+      productLink.className = "stretched-link";
+      productLink.dataset.bsToggle = "modal";
+      productLink.dataset.bsTarget = "#productModal";
+      productLink.onclick = () => showProductDetails(product);
+
+      const productCardText = document.createElement("p");
+      productCardText.className = "card-text text-center m-0 mochiy-pop-font fs-3  text-white";
+      productCardText.textContent = product.name;
+
+      productCardBody.appendChild(productCardText);
+      productCardBody.appendChild(productLink);
+
+      productCard.appendChild(productImgContainer);
+      productCard.appendChild(productCardBody);
+
+      productCol.appendChild(productCard);
+      productsRow.appendChild(productCol);
+    });
+    productsContainer.appendChild(productsRow);
+
+    contentDiv.appendChild(productsContainer);
+
+    const introContainer = document.createElement("div");
+    introContainer.className = "row my-4 p-2 bg-primary";
+
+    const introTitle = document.createElement("h2");
+    introTitle.className = "text-white mystery-font text-center mt-3";
+    introTitle.textContent = data.descriptions.introduction[0].title;
+    introContainer.appendChild(introTitle);
+
+    const introParagraph = document.createElement("p");
+    introParagraph.className = "text-white fs-4";
+    introParagraph.textContent = data.descriptions.introduction[1].descriptions.map((paragraph) => paragraph.join(" ")).join("\n");
+    introContainer.appendChild(introParagraph);
+
+    productsContainer.appendChild(introContainer);
+
+    const rulesContainer = document.createElement("div");
+    rulesContainer.className = "row my-4 p-2 bg-primary";
+
+    const rulesTitle = document.createElement("h2");
+    rulesTitle.className = "card-text text-center mt-2 mochiy-pop-font fs-3 text-white";
+    rulesTitle.textContent = data.descriptions.rules[0].title;
+    rulesContainer.appendChild(rulesTitle);
+
+    const rulesList = document.createElement("ul");
+    rulesList.className = "list-group my-5 p-0";
+    data.descriptions.rules[1].rulesItems.forEach((rule) => {
+      const listItem = document.createElement("li");
+      listItem.className = "list-group-item";
+      listItem.textContent = rule[0];
+      rulesList.appendChild(listItem);
+    });
+    rulesContainer.appendChild(rulesList);
+
+    const rulesTenantTitle = document.createElement("h2");
+    rulesTenantTitle.className = "card-text text-center m-0 mochiy-pop-font fs-3 text-white";
+    rulesTenantTitle.textContent = data.descriptions.rulesTenant[0].title;
+    rulesContainer.appendChild(rulesTenantTitle);
+
+    const rulesTenantList = document.createElement("ul");
+    rulesTenantList.className = "list-group mt-5 p-0";
+    data.descriptions.rulesTenant[1].rulesItems.forEach((rule) => {
+      const listItem = document.createElement("li");
+      listItem.className = "list-group-item";
+      listItem.textContent = rule[0];
+      rulesTenantList.appendChild(listItem);
+    });
+    rulesContainer.appendChild(rulesTenantList);
+
+    contentDiv.appendChild(rulesContainer);
+
+    // FAQs en el modal
+    const faqButton = document.getElementById("faqButton");
+    faqButton.addEventListener("click", () => showFAQs(data.faq));
+  }
+
+  // Función para mostrar los detalles del producto en el modal
+  function showProductDetails(product) {
+    document.getElementById("modalProductName").textContent = product.name;
+    document.getElementById("modalProductImage").src = `img/${product.image}`;
+    document.getElementById("modalProductSize").textContent = `Dimensions : ${product.size}`;
+    document.getElementById("modalProductPrice").textContent = `Prix : ${product.price}`;
+  }
+
+  // Función para mostrar los FAQs en el modal
+  function showFAQs(faqs) {
+    const faqList = document.getElementById("faqList");
+    faqList.innerHTML = "";
+    faqs.forEach((faqItem) => {
+      const questionItem = document.createElement("li");
+      questionItem.className = "list-group-item faq-item";
+      questionItem.textContent = faqItem[0];
+      faqList.appendChild(questionItem);
+    });
+  }
+
+  // Función para cambiar aleatoriamente la clase de fondo
+  function changeRandomBackground() {
+    const elements = document.querySelectorAll(".random-background");
+    const numberOfColors = 12;
+    elements.forEach((element) => {
+      for (let i = 1; i <= numberOfColors; i++) {
+        element.classList.remove(`random-background-${i}`);
       }
+      const randomColorClass = `random-background-${Math.floor(Math.random() * numberOfColors) + 1}`;
+      element.classList.add(randomColorClass);
+    });
+  }
 
-      // Función para mostrar los datos JSON en el HTML
-      function displayData(data) {
-        // Actualizar el título del documento
-        document.title = data.companyName;
-
-        const contentDiv = document.getElementById("content");
-
-        // Contenedor para logo de la compañía y nombre de la compañía
-        const headerContainer = document.createElement("section");
-        headerContainer.className = "header-container d-flex";
-
-        // Crear un contenedor para el logo
-        const logoContainer = document.createElement("article");
-        logoContainer.className = "logo-container my-3 d-flex";
-
-        // Mostrar logo de la compañía
-        const mainLogo = document.createElement("img");
-        mainLogo.className = "img-fluid align-self-center";
-        mainLogo.src = `img/${data.mainLogo}`; // Ajuste para mostrar la imagen
-        mainLogo.alt = `${data.companyName} Logo`;
-        logoContainer.appendChild(mainLogo);
-
-        headerContainer.appendChild(logoContainer);
-
-        // Crear un contenedor para los correos electrónicos y teléfonos
-        const contactInfo = document.createElement("div");
-        contactInfo.className = "contact-info-container w-100";
-
-        // Mostrar nombre de la compañía
-        const companyName = document.createElement("h1");
-        companyName.className =
-          "text-primary text-center brown-font mt-2 align-items-center d-flex mystery-font justify-content-center";
-        companyName.textContent = data.companyName;
-        contactInfo.appendChild(companyName);
-
-        const address = document.createElement("p");
-        address.className =
-          "orange-font mochiy-pop-font mb-2 fs-5 lh-2 text-center";
-        address.textContent = `${data.address}`;
-        contactInfo.appendChild(address);
-
-        const reservationMail = document.createElement("p");
-        reservationMail.className =
-          "orange-font mb-0 lh-2 mochiy-pop-font text-center";
-        reservationMail.textContent = `${data.reservationMail} ${data.email}`;
-        contactInfo.appendChild(reservationMail);
-
-        const reservationPhone = document.createElement("p");
-        reservationPhone.className =
-          "orange-font mb-0 lh-2 mochiy-pop-font text-center mb-4";
-        reservationPhone.textContent = `${data.reservationPhone} ${data.phone}`;
-        contactInfo.appendChild(reservationPhone);
-
-        headerContainer.appendChild(contactInfo);
-        contentDiv.appendChild(headerContainer);
-
-        // Contenedor para productos e introducción
-        const productsContainer = document.createElement("div");
-        productsContainer.className = "products-container";
-
-        // Crear una fila para las tarjetas de productos
-        const productsRow = document.createElement("div");
-        productsRow.className = "row";
-        data.products.forEach((product) => {
-          const productCol = document.createElement("div");
-          productCol.className = "col-md-6 col-xs-2 mb-4";
-
-          const productCard = document.createElement("div");
-          productCard.className = "card";
-
-          // Crear un contenedor para la imagen
-          const productImgContainer = document.createElement("div");
-          productImgContainer.className =
-            "image-container d-flex justify-content-center my-3";
-
-          const productImg = document.createElement("img");
-          productImg.src = `img/${product.imageThumbnail}`;
-          productImg.className = "card-img-top mx-5";
-          productImg.alt = `${product.name} Image`;
-          //productImg.style.height = '226px';
-
-          // Añadir la imagen al contenedor de la imagen
-          productImgContainer.appendChild(productImg);
-
-          const iconCTA = document.createElement("img");
-          iconCTA.src = "img/tap.svg";
-          iconCTA.className = "icon-cta position-absolute";
-          iconCTA.alt = "Tap to open";
-
-          // Añadir la imagen al contenedor de la imagen
-          productImgContainer.appendChild(iconCTA);
-
-          const productCardBody = document.createElement("div");
-          productCardBody.className = "card-body random-background bg-fixed";
-
-          const productLink = document.createElement("a");
-          productLink.href = "#";
-          productLink.className = "stretched-link";
-          productLink.dataset.bsToggle = "modal";
-          productLink.dataset.bsTarget = "#productModal";
-          productLink.onclick = () => showProductDetails(product);
-
-          const productCardText = document.createElement("p");
-          productCardText.className =
-            "card-text text-center m-0 mochiy-pop-font fs-3  text-white";
-          productCardText.textContent = product.name;
-
-          productCardBody.appendChild(productCardText);
-          productCardBody.appendChild(productLink);
-
-          // Añadir el contenedor de la imagen y el cuerpo de la tarjeta al productCard
-          productCard.appendChild(productImgContainer);
-          productCard.appendChild(productCardBody);
-
-          productCol.appendChild(productCard);
-          productsRow.appendChild(productCol);
-        });
-        productsContainer.appendChild(productsRow);
-
-        contentDiv.appendChild(productsContainer);
-
-        // Crear un contenedor div con clase row para introTitle e introParagraph
-        const introContainer = document.createElement("div");
-        introContainer.className = "row my-4 p-2 bg-primary";
-
-        // Mostrar introducción
-        const introTitle = document.createElement("h2");
-        introTitle.className = "text-white mystery-font text-center mt-3";
-        introTitle.textContent = data.descriptions.introduction[0].title;
-        introContainer.appendChild(introTitle);
-
-        const introParagraph = document.createElement("p");
-        introParagraph.className = "text-white fs-4";
-        introParagraph.textContent =
-          data.descriptions.introduction[1].descriptions
-            .map((paragraph) => paragraph.join(" "))
-            .join("\n");
-        introContainer.appendChild(introParagraph);
-
-        productsContainer.appendChild(introContainer);
-
-        // Contenedor para reglas de seguridad y reglas de arrendatario
-        const rulesContainer = document.createElement("div");
-        rulesContainer.className = "row my-4 p-2 bg-primary";
-
-        // Mostrar reglas de seguridad
-        const rulesTitle = document.createElement("h2");
-        rulesTitle.className =
-          "card-text text-center mt-2 mochiy-pop-font fs-3 text-white";
-        rulesTitle.textContent = data.descriptions.rules[0].title;
-        rulesContainer.appendChild(rulesTitle);
-
-        const rulesList = document.createElement("ul");
-        rulesList.className = "list-group my-5";
-        data.descriptions.rules[1].rulesItems.forEach((rule) => {
-          const listItem = document.createElement("li");
-          listItem.className = "list-group-item";
-          listItem.textContent = rule[0];
-          rulesList.appendChild(listItem);
-        });
-        rulesContainer.appendChild(rulesList);
-
-        // Mostrar reglas de arrendatario
-        const rulesTenantTitle = document.createElement("h2");
-        rulesTenantTitle.className =
-          "card-text text-center m-0 mochiy-pop-font fs-3 text-white";
-        rulesTenantTitle.textContent = data.descriptions.rulesTenant[0].title;
-        rulesContainer.appendChild(rulesTenantTitle);
-
-        const rulesTenantList = document.createElement("ul");
-        rulesTenantList.className = "list-group mt-5";
-        data.descriptions.rulesTenant[1].rulesItems.forEach((rule) => {
-          const listItem = document.createElement("li");
-          listItem.className = "list-group-item";
-          listItem.textContent = rule[0];
-          rulesTenantList.appendChild(listItem);
-        });
-        rulesContainer.appendChild(rulesTenantList);
-
-        contentDiv.appendChild(rulesContainer);
-
-
-        // Contenedor para FAQs
-        const faqContainer = document.createElement("div");
-        faqContainer.className = "row my-4 p-2 bg-primary";
-
-        // Mostrar FAQs
-        const faqTitle = document.createElement("h2");
-        faqTitle.className =
-        "card-text text-center mt-2 mochiy-pop-font fs-3 text-white";
-        faqTitle.textContent = "Foire aux questions";
-        faqContainer.appendChild(faqTitle);
-
-        const faqList = document.createElement("ul");
-        faqList.className = "list-group faq-container";
-        data.faq.forEach((faqItem) => {
-        const questionItem = document.createElement("li");
-        questionItem.className = "list-group-item faq-item";
-        questionItem.textContent = faqItem[0];
-        faqList.appendChild(questionItem);
-
-        });
-        faqContainer.appendChild(faqList);
-
-        contentDiv.appendChild(faqContainer);
-
-      }
-
-      // Función para mostrar los detalles del producto en el modal
-      function showProductDetails(product) {
-        document.getElementById("modalProductName").textContent = product.name;
-        document.getElementById(
-          "modalProductImage"
-        ).src = `img/${product.image}`;
-        document.getElementById(
-          "modalProductSize"
-        ).textContent = `Dimensions : ${product.size}`;
-        document.getElementById(
-          "modalProductPrice"
-        ).textContent = `Prix : ${product.price}`;
-      }
-
-      // Función para cambiar aleatoriamente la clase de fondo
-      function changeRandomBackground() {
-        const elements = document.querySelectorAll(".random-background");
-        const numberOfColors = 12; // Número total de colores definidos
-        elements.forEach((element) => {
-          // Quitar cualquier clase previa de fondo aleatorio
-          for (let i = 1; i <= numberOfColors; i++) {
-            element.classList.remove(`random-background-${i}`);
-          }
-          // Añadir una clase aleatoria de fondo
-          const randomColorClass = `random-background-${
-            Math.floor(Math.random() * numberOfColors) + 1
-          }`;
-          element.classList.add(randomColorClass);
-        });
-      }
-
-      // Cargar y mostrar el JSON al cargar la página
-      window.onload = loadJSON;
+  window.onload = loadJSON;
     </script>
 
     <!-- Google tag (gtag.js) -->
