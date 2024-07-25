@@ -225,11 +225,11 @@ body {
 }
 
 .faq-item:nth-child(even){
-    background: #ffad16;
+    background: #b6bfea;
 }
 
 .faq-item:nth-child(odd){
-    background: #ffd993;
+    background: #c2a3db;
 }
 
 .footer-container {
