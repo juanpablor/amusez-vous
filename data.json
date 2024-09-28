@@ -86,7 +86,7 @@
         {
             "id": 4,
             "name" : "Course à Obstacles",
-            "size" : "19 x 19 x 7h",
+            "size" : "10 x 19 x 7h",
             "price" : "100$ jour\n150$ fin de semaine complète",
             "image" : "course-a-obstacles.png",
             "imageThumbnail" : "course-a-obstacles-thumbnail.png"
