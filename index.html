@@ -14,19 +14,9 @@
     />
     <!-- Custom CSS for Bootstrap Colors -->
     <link rel="stylesheet" href="style.css" />
-        <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-LS0XWKF506"
-    ></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-LS0XWKF506");
+      window.GA_MEASUREMENT_ID = "G-LS0XWKF506";
+      window.GA_SCRIPT_ID = "googleAnalyticsScript";
     </script>
 
   </head>
@@ -232,10 +222,8 @@
         </div>
     
         <div class="col-12 col-sm-4">
-
-
-                <p><img class="icons email" src="/img/envelope-icon.svg" alt="" > <a href="emailto:amusez.vous@hotmail.com">amusez.vous@hotmail.com</a></p>
-                <p><img class="icons phone" src="/img/mobile-icon.svg" alt="" > <a href="tel:+15147954730">(514) 795 4730</a></p>
+            <p><img class="icons email" src="/img/envelope-icon.svg" alt="" > <a href="emailto:amusez.vous@hotmail.com">amusez.vous@hotmail.com</a></p>
+            <p><img class="icons phone" src="/img/mobile-icon.svg" alt="" > <a href="tel:+15147954730">(514) 795 4730</a></p>
 
             <p>Suivez-nous sur:</p>
                 <a href="https://www.instagram.com/amusezvous2007/" target="_blank">
@@ -244,6 +232,15 @@
                 <a href="https://www.facebook.com/profile.php?id=61563338976234" target="_blank">
                     <img class="social-icons" src="/img/facebook-icon.svg" alt="">
                 </a>
+            <p class="mt-3 mb-2">
+              <button
+                type="button"
+                id="changeCookiePreferences"
+                class="btn btn-outline-light cookie-preferences-trigger"
+              >
+                Changer les préférences de termoins (cookies)
+              </button>
+            </p>
             <p>Tous les droits reserves &copy; <span id="current-year"></span></p>
         </div>
     </footer>
@@ -494,13 +491,29 @@ async function loadJSON() {
     <!-- Cookie Consent Banner -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        const measurementId = window.GA_MEASUREMENT_ID;
+        const analyticsScriptId = window.GA_SCRIPT_ID;
+        const cookiePreferencesKey = "cookie_preferences";
         const cookieBanner = document.getElementById("cookieConsentBanner");
         const savePreferencesButton =
           document.getElementById("savePreferences");
         const rejectAllButton = document.getElementById("rejectAll");
+        const changeCookiePreferencesButton = document.getElementById(
+          "changeCookiePreferences"
+        );
         const checkboxes = document.querySelectorAll(
           '.cookie-options input[type="checkbox"]'
         );
+
+        changeCookiePreferencesButton.addEventListener("click", function () {
+          const storedPreferences = getStoredCookiePreferences();
+
+          if (storedPreferences) {
+            updateCheckboxes(storedPreferences);
+          }
+
+          cookieBanner.style.display = "block";
+        });
 
         savePreferencesButton.addEventListener("click", function () {
           let preferences = {};
@@ -519,39 +532,97 @@ async function loadJSON() {
             marketing: false,
           };
           saveCookiePreferences(preferences);
+          updateCheckboxes(preferences);
           cookieBanner.style.display = "none";
+          disableGoogleAnalytics();
         });
 
         function saveCookiePreferences(preferences) {
-          // Guardar las preferencias de cookies en localStorage o cookies
+          const expirationDate = new Date();
+          expirationDate.setMonth(expirationDate.getMonth() + 3);
+
           localStorage.setItem(
-            "cookie_preferences",
-            JSON.stringify(preferences)
+            cookiePreferencesKey,
+            JSON.stringify({
+              preferences: preferences,
+              expiresAt: expirationDate.toISOString(),
+            })
           );
         }
 
-        function loadCookiePreferences() {
-          // Cargar las preferencias de cookies guardadas
-          const preferences = localStorage.getItem("cookie_preferences");
-          if (preferences) {
-            const parsedPreferences = JSON.parse(preferences);
-            checkboxes.forEach(function (checkbox) {
-              checkbox.checked = parsedPreferences[checkbox.name];
-            });
-            loadGoogleAnalytics(parsedPreferences);
+        function getStoredCookiePreferences() {
+          const storedValue = localStorage.getItem(cookiePreferencesKey);
+          if (!storedValue) {
+            return null;
           }
+
+          try {
+            const parsedValue = JSON.parse(storedValue);
+            const expiresAt = new Date(parsedValue.expiresAt);
+
+            if (!parsedValue.preferences || Number.isNaN(expiresAt.getTime())) {
+              localStorage.removeItem(cookiePreferencesKey);
+              return null;
+            }
+
+            if (expiresAt.getTime() <= Date.now()) {
+              localStorage.removeItem(cookiePreferencesKey);
+              return null;
+            }
+
+            return parsedValue.preferences;
+          } catch (error) {
+            localStorage.removeItem(cookiePreferencesKey);
+            return null;
+          }
+        }
+
+        function loadCookiePreferences() {
+          const preferences = getStoredCookiePreferences();
+          if (!preferences) {
+            return false;
+          }
+
+          cookieBanner.style.display = "none";
+          updateCheckboxes(preferences);
+          loadGoogleAnalytics(preferences);
+          return true;
+        }
+
+        function updateCheckboxes(preferences) {
+          checkboxes.forEach(function (checkbox) {
+            if (checkbox.name === "essential") {
+              checkbox.checked = true;
+              return;
+            }
+
+            checkbox.checked = Boolean(preferences[checkbox.name]);
+          });
         }
 
         function loadGoogleAnalytics(preferences) {
           if (preferences.performance) {
-            // Cargar Google Analytics
-            const script = document.getElementById("googleAnalyticsScript");
-            if (script) {
-              script.src = script.src; // Recargar el script
-              const config = document.getElementById("googleAnalyticsConfig");
-              if (config) {
-                config.type = "text/javascript"; // Asegurarse que se ejecute el script de configuración
-              }
+            window["ga-disable-" + measurementId] = false;
+
+            if (!window.dataLayer) {
+              window.dataLayer = [];
+            }
+
+            if (typeof window.gtag !== "function") {
+              window.gtag = function () {
+                window.dataLayer.push(arguments);
+              };
+            }
+
+            if (!document.getElementById(analyticsScriptId)) {
+              const script = document.createElement("script");
+              script.id = analyticsScriptId;
+              script.async = true;
+              script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+              document.head.appendChild(script);
+
+              window.gtag("js", new Date());
+              window.gtag("config", measurementId);
             }
 
             // Verificar si Google Analytics está cargado
@@ -562,13 +633,17 @@ async function loadJSON() {
                 console.log("Google Analytics no se cargó correctamente.");
               }
             }, 1000); // Dar tiempo para cargar el script
+          } else {
+            disableGoogleAnalytics();
           }
         }
 
+        function disableGoogleAnalytics() {
+          window["ga-disable-" + measurementId] = true;
+        }
+
         function isGoogleAnalyticsLoaded() {
-          const script = document.querySelector(
-            'script[src*="googletagmanager.com/gtag/js"]'
-          );
+          const script = document.getElementById(analyticsScriptId);
           return !!script;
         }
 
@@ -577,10 +652,8 @@ async function loadJSON() {
         }
 
         // Mostrar el banner solo si no se han guardado preferencias previamente
-        if (!localStorage.getItem("cookie_preferences")) {
+        if (!loadCookiePreferences()) {
           cookieBanner.style.display = "block";
-        } else {
-          loadCookiePreferences();
         }
       });
     </script>
