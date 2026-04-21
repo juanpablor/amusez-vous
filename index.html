@@ -17,6 +17,17 @@
     <script>
       window.GA_MEASUREMENT_ID = "G-LS0XWKF506";
       window.GA_SCRIPT_ID = "googleAnalyticsScript";
+
+      // GA4 Consent Mode v2 — must run before gtag.js loads
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { window.dataLayer.push(arguments); }
+
+      // Default: deny all until user decides
+      gtag("consent", "default", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        wait_for_update: 500,
+      });
     </script>
 
   </head>
@@ -602,17 +613,9 @@ async function loadJSON() {
 
         function loadGoogleAnalytics(preferences) {
           if (preferences.performance) {
-            window["ga-disable-" + measurementId] = false;
-
-            if (!window.dataLayer) {
-              window.dataLayer = [];
-            }
-
-            if (typeof window.gtag !== "function") {
-              window.gtag = function () {
-                window.dataLayer.push(arguments);
-              };
-            }
+            gtag("consent", "update", {
+              analytics_storage: "granted",
+            });
 
             if (!document.getElementById(analyticsScriptId)) {
               const script = document.createElement("script");
@@ -621,34 +624,19 @@ async function loadJSON() {
               script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
               document.head.appendChild(script);
 
-              window.gtag("js", new Date());
-              window.gtag("config", measurementId);
+              gtag("js", new Date());
+              gtag("config", measurementId);
             }
-
-            // Verificar si Google Analytics está cargado
-            setTimeout(() => {
-              if (isGoogleAnalyticsLoaded() && isGtagLoaded()) {
-                console.log("Google Analytics está cargado correctamente.");
-              } else {
-                console.log("Google Analytics no se cargó correctamente.");
-              }
-            }, 1000); // Dar tiempo para cargar el script
           } else {
             disableGoogleAnalytics();
           }
         }
 
         function disableGoogleAnalytics() {
-          window["ga-disable-" + measurementId] = true;
-        }
-
-        function isGoogleAnalyticsLoaded() {
-          const script = document.getElementById(analyticsScriptId);
-          return !!script;
-        }
-
-        function isGtagLoaded() {
-          return typeof gtag === "function";
+          gtag("consent", "update", {
+            analytics_storage: "denied",
+            ad_storage: "denied",
+          });
         }
 
         // Mostrar el banner solo si no se han guardado preferencias previamente
